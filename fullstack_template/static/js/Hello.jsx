@@ -18,17 +18,27 @@ export default class Hello extends React.Component {
   getPythonHello() {
     fetch(window.location.href + 'hello', {
       method: 'GET',
+      body: String,
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Origin': '',
-      }
+        //'Accept': 'text/plain',
+        'Content-Type': 'text/plain'
+        //'Origin': '',
+      },
+      credentials: "same-origin"
     })
     .then(function(response) {
         if (response.status >= 400) {
             throw new Error("Bad response from server");
         }
-        return this.personaliseGreeting(response);
+        // var test = response.json()
+        //console.log('response statustext ' + response.statusText;
+        response.json().then(function(data) {
+          console.log(data['greet']);
+          var value = "'" + data['greet'] + "'"
+          return this.personaliseGreeting(value);
+        })
+        //console.log('response text ' + response.json()));
+
     });
   }
 
