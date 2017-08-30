@@ -34,8 +34,6 @@ def index():
 def hello():
     random_greeting = random.randint(0, 5)
     selected_greeting = hellos.find_one({"_id": random_greeting})
-    print selected_greeting
-    # result = json.dumps(selected_greeting['greet'])
     return json.dumps(selected_greeting)
 
 

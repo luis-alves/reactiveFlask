@@ -37,6 +37,7 @@ export default class Hello extends React.Component {
           var value = data['greet']
           return this.personaliseGreeting(value);
         })
+
     });
   }
 
