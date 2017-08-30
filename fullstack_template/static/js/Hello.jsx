@@ -15,24 +15,31 @@ export default class Hello extends React.Component {
     this.setState({greeting: greeting + ' ' + this.props.name + '!'});
   }
 
+  printthis(){
+    console.log('helloooooo');
+  }
+
   getPythonHello() {
-    fetch(window.location.href + 'hello', {
-      method: 'GET',
-      body: String,
-      headers: {
-        //'Accept': 'text/plain',
-        'Content-Type': 'text/plain'
-        //'Origin': '',
-      },
-      credentials: "same-origin"
-    })
-    .then(function(response) {
+    fetch(window.location.href + 'hello',
+    // {
+    //   /* Options are only needed in POST methods */
+    //   method: 'GET',
+    //   body: String,
+    //   headers: {
+    //     'Accept': 'text/plain',
+    //     'Content-Type': 'application/json'
+    //     'Origin': '',
+    //   },
+    //   credentials: "same-origin"
+    // }
+    )
+    .then(response => {
         if (response.status >= 400) {
             throw new Error("Bad response from server");
         }
         // var test = response.json()
         // console.log('response statustext ' + response.statusText;
-        response.json().then(function(data) {
+        response.json().then(data => {
           console.log('value ' + data['greet']);
           var value = data['greet']
           return this.personaliseGreeting(value);
