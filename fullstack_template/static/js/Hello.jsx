@@ -15,10 +15,6 @@ export default class Hello extends React.Component {
     this.setState({greeting: greeting + ' ' + this.props.name + '!'});
   }
 
-  printthis(){
-    console.log('helloooooo');
-  }
-
   getPythonHello() {
     fetch(window.location.href + 'hello',
     // {
@@ -37,15 +33,10 @@ export default class Hello extends React.Component {
         if (response.status >= 400) {
             throw new Error("Bad response from server");
         }
-        // var test = response.json()
-        // console.log('response statustext ' + response.statusText;
         response.json().then(data => {
-          console.log('value ' + data['greet']);
           var value = data['greet']
           return this.personaliseGreeting(value);
         })
-        //console.log('response text ' + response.json()));
-
     });
   }
 
