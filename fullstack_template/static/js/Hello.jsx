@@ -31,10 +31,10 @@ export default class Hello extends React.Component {
             throw new Error("Bad response from server");
         }
         // var test = response.json()
-        //console.log('response statustext ' + response.statusText;
+        // console.log('response statustext ' + response.statusText;
         response.json().then(function(data) {
-          console.log(data['greet']);
-          var value = "'" + data['greet'] + "'"
+          console.log('value ' + parse(data));
+          var value = data['greet']
           return this.personaliseGreeting(value);
         })
         //console.log('response text ' + response.json()));
