@@ -33,7 +33,7 @@ export default class Hello extends React.Component {
         // var test = response.json()
         // console.log('response statustext ' + response.statusText;
         response.json().then(function(data) {
-          console.log('value ' + parse(data));
+          console.log('value ' + data['greet']);
           var value = data['greet']
           return this.personaliseGreeting(value);
         })
