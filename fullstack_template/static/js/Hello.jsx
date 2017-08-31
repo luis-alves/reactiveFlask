@@ -1,5 +1,10 @@
 import React from "react";
-import {Button, grid, Row, Col } from "react-bootstrap";
+import {
+    Button,
+    grid,
+    Row,
+    Col
+} from "react-bootstrap";
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
@@ -8,7 +13,7 @@ export default class Hello extends React.Component {
   constructor(props) {
     super(props);
     this.state = {greeting: 'Hello ' + this.props.name};
-    this.getPythonHello = this.getPythonHello(this);
+    this.getPythonHello = this.getPythonHello.bind(this);
   }
 
   personaliseGreeting(greeting) {
@@ -50,6 +55,6 @@ export default class Hello extends React.Component {
           Say Hello!
         </Button>
       </div>
-    )
-  }
+        )
+    }
 }
