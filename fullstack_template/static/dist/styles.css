@@ -1,4 +1,34 @@
+<<<<<<< HEAD
 .header-contents h1 {
     font-size: 120px;
     font-weight: 300;
+=======
+.page-header {
+    min-height: 100%;
+    text-align: center;
+    background-image: url(51c50eca63406c83f69d897fcc016bcc.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-top: -15px;
+}
+.header-contents {
+    top: 50%;
+    /*position:absolute;*/
+    padding: 10px;
+}
+.header-contents h1 {
+    font-size: 120px;
+    font-weight: 300;
+    color: white;
+}
+.header-contents button {
+    font-size: 35px;
+    border-radius: 30px;
+    font-weight: 300;
+}
+
+.header-contents button:focus {
+    outline: None;
+>>>>>>> 551023190bd3cb43075507b693dbe7bcba522156
 }

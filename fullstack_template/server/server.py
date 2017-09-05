@@ -32,10 +32,14 @@ def index():
 
 @app.route("/hello", methods=['GET'])
 def hello():
+    return get_hello()
+
+
+def get_hello():
     random_greeting = random.randint(0, 5)
     selected_greeting = hellos.find_one({"_id": random_greeting})
     return json.dumps(selected_greeting)
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

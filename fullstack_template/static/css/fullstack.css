@@ -1,11 +1,40 @@
+<<<<<<< HEAD
 .header-contents h1 {
     font-size: 120px;
     font-weight: 300;
 }
 
 .page-header {
+=======
+.page-header {
+    min-height: 100%;
+    text-align: center;
+>>>>>>> 551023190bd3cb43075507b693dbe7bcba522156
     background-image: url('../images/header.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+<<<<<<< HEAD
+=======
+    margin-top: -15px;
+}
+.header-contents {
+    top: 50%;
+    /*position:absolute;*/
+    padding: 10px;
+}
+.header-contents h1 {
+    font-size: 120px;
+    font-weight: 300;
+    color: white;
+}
+.header-contents button {
+    font-size: 35px;
+    border-radius: 30px;
+    font-weight: 300;
+}
+
+.header-contents button:focus {
+    outline: None;
+>>>>>>> 551023190bd3cb43075507b693dbe7bcba522156
 }
