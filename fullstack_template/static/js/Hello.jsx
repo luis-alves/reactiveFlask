@@ -3,15 +3,19 @@ import {
     Button,
     grid,
     Row,
-    Col
+    Col,
+    PageHeader
 } from "react-bootstrap";
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
+require('../css/fullstack.css');
+
 export default class Hello extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {greeting: 'Hello ' + this.props.name};
     this.getPythonHello = this.getPythonHello.bind(this);
   }
@@ -21,7 +25,7 @@ export default class Hello extends React.Component {
   }
 
   getPythonHello() {
-    fetch(window.location.href + 'hello',
+    fetch(window.location.href + 'gethello',
     // {
     //   /* Options are only needed in POST methods */
     //   method: 'GET',
@@ -48,13 +52,16 @@ export default class Hello extends React.Component {
 
   render () {
     return (
-      <div>
-        <h1>{this.state.greeting}</h1>
-        <hr/>
-        <Button bsSize='large' bsStyle='danger' onClick={this.getPythonHello}>
-          Say Hello!
-        </Button>
-      </div>
+      <PageHeader>
+        <div className='header-contents'>
+          <h1>{this.state.greeting}</h1>
+          <hr/>
+          <Button bsSize='large' bsStyle='danger' onClick={this.getPythonHello}>
+            Say Hello!
+          </Button>
+        </div>
+      </PageHeader>
+
         )
     }
 }

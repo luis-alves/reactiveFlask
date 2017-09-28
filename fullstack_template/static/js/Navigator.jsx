@@ -6,6 +6,8 @@ import {
     NavDropdown,
     MenuItem
 } from "react-bootstrap";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
 
 
 
@@ -22,8 +24,10 @@ export default class Navigator extends React.Component{
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
-          <NavItem eventKey={1} href="#">Link</NavItem>
-          <NavItem eventKey={2} href="#">Link</NavItem>
+          <LinkContainer to={'/hello'}>
+            <NavItem eventKey={1} href="/hello">Get 1</NavItem>
+          </LinkContainer>
+          <NavItem eventKey={2} href="helloAgain">Get 3</NavItem>
           <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
             <MenuItem eventKey={3.1}>Action</MenuItem>
             <MenuItem eventKey={3.2}>Another action</MenuItem>

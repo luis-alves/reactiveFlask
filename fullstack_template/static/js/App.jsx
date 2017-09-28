@@ -1,19 +1,28 @@
 import React from "react";
-import Hello from "./Hello";
 import Navigator from "./Navigator";
-import { PageHeader } from "react-bootstrap"
+import Hello from "./Hello";
+import HelloAgain from "./HelloAgain";
+import { PageHeader,Navbar,
+Nav,
+NavItem,
+NavDropdown,
+MenuItem } from "react-bootstrap"
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 require('../css/fullstack.css');
 
 export default class App extends React.Component {
   render() {
     return (
-      <PageHeader>
-        <div className='header-contents'>
+      // <Router>
+        <div>
           <Navigator />
-          <Hello name='Rimini' />
+          <PageHeader>
+
+          </PageHeader>
         </div>
-      </PageHeader>
+      // </Router>
+
     )
   }
 }
