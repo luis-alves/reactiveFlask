@@ -5,3 +5,5 @@
 /fullstack_template/server/tcl
 /fullstack_template/static/node_modules
 /fullstack_template/server/flaskenv
+/fullstack_template/static/bootstrap
+/fullstack_template/static/dist/
