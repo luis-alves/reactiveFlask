@@ -1,3 +1,8 @@
+body {
+  font-family: arial;
+  font-size: 1em;
+}
+
 .page-header {
     min-height: 100%;
     text-align: center;
@@ -25,4 +30,47 @@
 
 .header-contents button:focus {
     outline: None;
+}
+
+.active {
+  background-color: darkgreen;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  overflow: auto;
+  /*margin-bottom: 10px;
+  border-radius: 5px;*/
+  background-color: #4CAF50; /* Green */
+}
+
+.navbar-accounts {
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  /*text-align: center;*/
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  width: 120px;
+  margin-right: 40px;
+  font-weight: bold;
+
+}
+
+/*.navbar-accounts a {
+  display: block;
+  width: 60px;
+  background-color: #dddddd;
+  text-decoration: none;
+}*/
+
+.main {
+  margin-left: 500px;
+  display: inline-block;
 }

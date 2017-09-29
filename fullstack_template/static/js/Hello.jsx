@@ -25,7 +25,7 @@ export default class Hello extends React.Component {
   }
 
   getPythonHello() {
-    fetch(window.location.href + 'gethello',
+    fetch('gethello',
     // {
     //   /* Options are only needed in POST methods */
     //   method: 'GET',

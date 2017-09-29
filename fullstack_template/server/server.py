@@ -30,6 +30,11 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/hello")
+def helloss():
+    return render_template("index.html")
+
+
 @app.route("/gethello", methods=['GET'])
 def hello():
     return get_hello()

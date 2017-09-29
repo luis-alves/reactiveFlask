@@ -1,7 +1,7 @@
 import React from "react";
 import Navigator from "./Navigator";
 import Hello from "./Hello";
-import HelloAgain from "./HelloAgain";
+import Main from "./Main";
 import { PageHeader,Navbar,
 Nav,
 NavItem,
@@ -17,9 +17,7 @@ export default class App extends React.Component {
       // <Router>
         <div>
           <Navigator />
-          <PageHeader>
-
-          </PageHeader>
+          <Main />
         </div>
       // </Router>
 
