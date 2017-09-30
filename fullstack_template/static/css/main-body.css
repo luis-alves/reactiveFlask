@@ -1,0 +1,26 @@
+
+
+.body {
+  margin-left: 260px;
+  width: auto;
+}
+
+.page-header {
+    /*background-image: url('../images/header.jpg');*/
+    height: 10% !important;
+    background-color: black;
+    color: white;
+    margin: 0;
+}
+
+.page-subheader {
+    height: 3% !important;
+    background-color: yellow;
+    margin: 0;
+}
+
+.page-bodyaccount {
+    height: 87% !important;
+    background-color: yellow;
+    margin: 0;
+}

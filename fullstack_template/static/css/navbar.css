@@ -1,0 +1,38 @@
+.active {
+  background-color: darkgreen;
+}
+
+.navbar ul {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 260px;
+  /*height: 97.5%;*/
+  position: fixed;
+  overflow: auto;
+  background: linear-gradient(to bottom, #34aebe, #23809b);
+  min-width: 260px;
+  color: #fff;
+  z-index: 999;
+  font-family: 'Lato', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
+}
+
+.navbar-accounts {
+  border: none;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  width: 120px;
+  margin-right: 40px;
+  text-align: left;
+
+}
+
+.accounts {
+  margin-left: 35px;
+}

@@ -6,8 +6,8 @@ class AccountsMenu extends React.Component {
     return (
       <div>
         <li className="navbar-accounts">All Accounts</li>
-        <li className="navbar-accounts active"><Link to='/hello'></Link>Bankinter</li>
-        <li className="navbar-accounts"><Link to='/hello'></Link>Cartão Crédito</li>
+        <Link to='/hello'><li className="navbar-accounts accounts active">Bankinter</li></Link>
+        <Link to='/hello'><li className="navbar-accounts accounts">Cartão Crédito</li></Link>
       </div>
 
     )

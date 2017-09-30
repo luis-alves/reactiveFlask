@@ -1,7 +1,6 @@
 import React from "react";
 import Navigator from "./Navigator";
-import Hello from "./Hello";
-import Main from "./Main";
+import Main from "./MainBody/Main";
 import { PageHeader,Navbar,
 Nav,
 NavItem,
@@ -14,12 +13,10 @@ require('../css/fullstack.css');
 export default class App extends React.Component {
   render() {
     return (
-      // <Router>
-        <div>
-          <Navigator />
-          <Main />
-        </div>
-      // </Router>
+      <div>
+        <Navigator />
+        <Main />
+      </div>
 
     )
   }

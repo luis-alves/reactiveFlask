@@ -1,66 +1,13 @@
-body {
-  font-family: arial;
+@import url('main-body.css');
+@import url('navbar.css');
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+html, body {
+  font-family: 'Lato', Arial, 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 1em;
-}
-
-.page-header {
-    min-height: 100%;
-    text-align: center;
-    background-image: url('../images/header.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    margin-top: -15px;
-}
-.header-contents {
-    top: 50%;
-    /*position:absolute;*/
-    padding: 10px;
-}
-.header-contents h1 {
-    font-size: 120px;
-    font-weight: 300;
-    color: white;
-}
-.header-contents button {
-    font-size: 35px;
-    border-radius: 30px;
-    font-weight: 300;
-}
-
-.header-contents button:focus {
-    outline: None;
-}
-
-.active {
-  background-color: darkgreen;
-}
-
-.navbar ul {
-  list-style-type: none;
+  overflow: hidden;
   margin: 0;
-  padding: 0;
-  width: 300px;
-  height: 100%;
-  position: fixed;
-  overflow: auto;
-  /*margin-bottom: 10px;
-  border-radius: 5px;*/
-  background-color: #4CAF50; /* Green */
-}
-
-.navbar-accounts {
-  border: none;
-  color: white;
-  padding: 10px 10px;
-  /*text-align: center;*/
-  text-decoration: none;
-  display: block;
-  font-size: 16px;
-  width: 120px;
-  margin-right: 40px;
-  font-weight: bold;
-
 }
 
 /*.navbar-accounts a {
@@ -69,8 +16,3 @@ body {
   background-color: #dddddd;
   text-decoration: none;
 }*/
-
-.main {
-  margin-left: 500px;
-  display: inline-block;
-}

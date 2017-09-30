@@ -19,13 +19,14 @@ export default class Navigator extends React.Component{
   }
   render () {
     return (
+      <div>
         <nav className="navbar">
           <ul>
             <Menu />
             <AccountsMenu />
           </ul>
-
         </nav>
+      </div>
     );
   }
 
