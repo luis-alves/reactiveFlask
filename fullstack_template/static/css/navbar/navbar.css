@@ -1,5 +1,5 @@
 .active {
-  background-color: darkgreen;
+  background-color: lightgreen;
 }
 
 .navbar ul {
@@ -9,22 +9,19 @@
   margin: 0;
   padding: 0;
   width: 260px;
-  /*height: 97.5%;*/
   position: fixed;
   overflow: auto;
   background: linear-gradient(to bottom, #34aebe, #23809b);
   min-width: 260px;
   color: #fff;
   z-index: 999;
-  font-family: 'Lato', Arial, 'Helvetica Neue', Helvetica, sans-serif;
-
+  font-family: 'Lato';
 }
 
 .navbar-accounts {
   border: none;
   padding: 10px 10px;
   text-align: center;
-  text-decoration: none;
   display: block;
   font-size: 16px;
   width: 120px;
@@ -35,4 +32,13 @@
 
 .accounts {
   margin-left: 35px;
+}
+
+.budget-image {
+  content:url('../../images/budget-luis.svg');
+  width: 20px;
+  height: 20px;
+  color: black;
+  z-index: 0;
+  padding-right: 15px;
 }

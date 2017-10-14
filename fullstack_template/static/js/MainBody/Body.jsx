@@ -3,13 +3,22 @@ import Header from "./Header"
 import Subheader from "./Subheader"
 import BodyAccount from "./BodyAccount"
 
+
 class Body extends React.Component {
+
   render () {
     return (
-      <div className='body'>
-        <Header />
-        <Subheader />
-        <BodyAccount />
+      <div className='bodymain'>
+        <div className="page-header-main">
+          <Header />
+        </div>
+        <div className="page-subheader">
+          <Subheader />
+        </div>
+        <div className="page-bodyaccount">
+          <BodyAccount />
+          <img className="imageadd"/>
+        </div>
       </div>
     )
   }

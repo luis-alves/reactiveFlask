@@ -1,10 +1,14 @@
 import React from "react"
+import AccountName from "./Header/Account/AccountName"
 
 
 class Header extends React.Component {
   render () {
     return (
-        <h4 className='page-header'>THIS IS THE HEADER OF THE MAIN BODY</h4>
+      <div className="page-header">
+        <AccountName />
+      </div>
+
     )
   }
 }

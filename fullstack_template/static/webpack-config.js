@@ -26,10 +26,10 @@ const config = {
                 })
             },
             {
-                test: /\.(png|svg|jpg|gif)$/,
-                use: 'file-loader'
-            }
-        ]
+                test: /\.(png|ttf|svg|eot|woff|jpg|gif)$/,
+                use: 'url-loader'
+            },
+        ],
     },
     plugins: [
         new ExtractTextPlugin('styles.css'),

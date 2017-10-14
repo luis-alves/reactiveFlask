@@ -1,11 +1,4 @@
 import React from "react";
-import {
-    Button,
-    grid,
-    Row,
-    Col,
-    PageHeader
-} from "react-bootstrap";
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
@@ -57,7 +50,7 @@ class Hello extends React.Component {
         <div className='header-contents'>
           <h1>{this.state.greeting}</h1>
           <hr/>
-          <Button bsSize='large' bsStyle='danger' onClick={this.getPythonHello}>
+          <Button onClick={this.getPythonHello}>
             Say Hello!
           </Button>
         </div>

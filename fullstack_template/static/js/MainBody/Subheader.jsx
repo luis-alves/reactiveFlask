@@ -1,11 +1,14 @@
 import React from "react"
+import LeftOptions from "./Subheader/LeftOptions"
 
-class Subheader extends React.Component {
+
+
+export default class Subheader extends React.Component {
   render () {
     return (
-      <h6 className='page-subheader'>This is the sub header</h6>
+      <div className="subheader">
+        <LeftOptions />
+      </div>
     )
   }
 }
-
-export default Subheader

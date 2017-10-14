@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+<metadata>
+Created by FontForge 20170910 at Fri Oct 13 15:42:19 2017
+ By Jimmy Wärting
+</metadata>
+<defs>
+<font id="font3933" horiz-adv-x="1024" vert-adv-y="1024" >
+  <font-face 
+    font-family="SVGFont 1"
+    font-weight="400"
+    font-stretch="normal"
+    units-per-em="1024"
+    panose-1="2 0 5 9 0 0 0 0 0 0"
+    ascent="819"
+    descent="-205"
+    bbox="0 0 1000 1024"
+    underline-thickness="0"
+    underline-position="0"
+    unicode-range="U+0030-007A"
+  />
+<missing-glyph vert-adv-y="90" 
+d="M0 0h1000v1024h-1000v-1024z" />
+    <glyph glyph-name=".notdef" vert-adv-y="90" 
+d="M0 0h1000v1024h-1000v-1024z" />
+    <glyph glyph-name="glyph 3" unicode="c" vert-adv-y="90" 
+d="M539.648 913.463l-0.000950001 9.92486e-10c-235.075 0 -425.861 -178.69 -425.86 -398.861c0.000595253 -220.17 190.786 -398.859 425.86 -398.859l0.000950001 9.92486e-10c235.074 0.000522169 425.859 178.69 425.859 398.859l1.20792e-09 0.000950001
+c0 220.17 -190.785 398.86 -425.859 398.86z" />
+  </font>
+</defs></svg>

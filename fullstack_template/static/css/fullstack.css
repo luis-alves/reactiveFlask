@@ -1,14 +1,40 @@
-@import url('main-body.css');
-@import url('navbar.css');
+@import url('./body/body.css');
+@import url('./navbar/navbar.css');
+@import url('styles.css');
 
-@import url('https://fonts.googleapis.com/css?family=Lato');
+/*@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');*/
+/*<link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">*/
+/*@import url(http://weloveiconfonts.com/api/?family=entypo|typicons);*/
+/*@import url("fonts/luisfont.svg")*/
+@font-face {
+  font-family:'luisfont';
+  src: url('./fonts/luisfont.ttf') format('truetype');
+}
 
-html, body {
-  font-family: 'Lato', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+import css/month-picker.css
+
+html {
+
+}
+
+body{
+  font-family: 'Lato', Arial, 'Helvetica Neue', Helvetica, sans-serif !important;
   font-size: 1em;
   overflow: hidden;
-  margin: 0;
+  margin: 0px;
 }
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: transparent;
+}
+
+
+
+
 
 /*.navbar-accounts a {
   display: block;

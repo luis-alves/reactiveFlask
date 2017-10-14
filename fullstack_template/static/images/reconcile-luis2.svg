@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="2000px"
+   height="2000px"
+   viewBox="0 0 2000 2000"
+   version="1.1"
+   id="SVGRoot"
+   sodipodi:docname="reconcile-luis2.svg"
+   inkscape:version="0.92.1 r15371">
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="857.4286"
+     inkscape:cy="885.71429"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="-8"
+     inkscape:window-y="1072"
+     inkscape:window-maximized="1"
+     inkscape:snap-bbox="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:bbox-nodes="false"
+     inkscape:bbox-paths="false"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:object-paths="true"
+     inkscape:snap-bbox-midpoints="false"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:snap-nodes="false"
+     inkscape:snap-others="false" />
+  <defs
+     id="defs5056" />
+  <metadata
+     id="metadata5059">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <path
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1136.78112793;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 998.57142,2.8574219 A 992.85887,992.85667 0 0 0 5.7148438,995.71071 992.85887,992.85667 0 0 0 998.57142,1988.572 992.85887,992.85667 0 0 0 1991.428,995.71071 992.85887,992.85667 0 0 0 998.57142,2.8574219 Z M 1036.1824,321.00002 c 81.5491,0 161.3985,9.97219 239.5496,29.92753 79.0007,19.95534 151.2072,44.34785 216.6164,73.17223 v 231.70138 h -12.7487 c -73.0544,-49.51881 -148.6578,-87.57691 -226.8089,-114.18405 -77.3017,-26.6071 -152.8972,-39.91136 -226.801,-39.91136 -135.91505,0 -243.37569,39.9128 -322.37636,119.73417 -78.15113,79.08229 -117.23064,195.48866 -117.23064,349.21872 0,149.29556 38.23031,264.21656 114.68251,344.77696 77.30169,79.8214 185.61157,119.7342 324.92449,119.7342 48.4197,0 97.6818,-5.5401 147.8005,-16.6264 50.1187,-11.0863 95.1426,-25.4986 135.0677,-43.2367 34.8282,-15.5208 67.5346,-31.7798 98.1156,-48.7788 30.5808,-17.7381 54.7873,-32.889 72.6261,-45.4535 h 12.7487 v 229.4845 c -79.8501,33.2589 -155.8821,59.1288 -228.087,77.6059 -71.3554,18.4772 -147.3794,27.7107 -228.079,27.7107 -102.78579,0 -197.07973,-12.9349 -282.87609,-38.803 -85.79639,-26.6071 -159.27281,-66.5119 -220.43458,-119.7261 -62.01126,-53.2143 -110.01141,-120.4743 -143.99017,-201.7739 -33.97876,-81.2995 -50.96294,-176.2681 -50.96294,-284.91386 0,-202.50979 63.70656,-361.41436 191.1269,-476.71189 C 657.31539,378.6492 826.3635,321.00002 1036.1824,321.00002 Z"
+       id="path5628"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

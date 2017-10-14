@@ -1,0 +1,35 @@
+@import url('./header/bodyheader.css');
+@import url('./subheader/leftoptions.css');
+@import url('./mainbody/body-header.css');
+
+.bodymain {
+  margin-left: 260px;
+  width: auto;
+  /*display: flex;*/
+  /*overflow-x: visible;*/
+}
+
+.page-header {
+  height: 66px;
+  background-color: black;
+
+
+}
+
+.page-subheader {
+    height: 33px !important;
+    /*background-color: yellow;*/
+    /*display: flex;
+    justify-content: left;*/
+    /*align-items: center;*/
+    /*margin-bottom: -15px;*/
+
+}
+
+.page-bodyaccount {
+    /*height: auto !important;*/
+    /*background-color: green;*/
+    margin: 0;
+    /*overflow-y: auto;*/
+    /*overflow-x: auto;*/
+}

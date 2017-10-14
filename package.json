@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "babel-eslint": "^4.0.5",
+    "eslint": "^1.0.0",
+    "eslint-config-rallycoding": "^3.2.0",
+    "eslint-plugin-react": "^3.2.0"
+  },
+  "plugins": [
+    "react"
+  ]
+}

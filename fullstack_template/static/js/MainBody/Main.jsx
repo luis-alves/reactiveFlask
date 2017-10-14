@@ -22,7 +22,7 @@ export default class Main extends React.Component {
   render () {
     return (
       <Switch>
-        <Route path='/hello' component={Hello}/>
+        <Route path='/accounts' component={Body}/>
         <Route exact path='/' component={Body} />
       </Switch>
         )
