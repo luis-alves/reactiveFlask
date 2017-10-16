@@ -17,7 +17,6 @@ def accounts():
     entries = db.entries
 
     all_lines = entries.find()
-    # print dumps(all_lines)
     #
     # entries.drop()
     #

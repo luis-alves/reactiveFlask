@@ -1,6 +1,14 @@
 import React from "react"
 
 export default class TotalBudget extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount () {
+    console.log(this.props.cleared_balance);
+  }
+
   render () {
     return (
       <div className="account-name-container">
@@ -10,7 +18,7 @@ export default class TotalBudget extends React.Component {
         <div className="account-name-separator">
           <div className="balance-container">
             <p className="balance-title">Cleared Balance</p>
-            <p className="balance-value">$49,910.00</p>
+            <p className="balance-value">${this.props.cleared_balance}</p>
           </div>
         </div>
         <div className="balance-separator">

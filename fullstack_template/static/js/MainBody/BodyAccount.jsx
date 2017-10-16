@@ -21,13 +21,10 @@ class BodyAccount extends React.Component {
                 throw new Error("Bad response from server");
             }
             response.json().then(data => {
-                console.log(data)
+                // console.log('bodyaccount' + data)
               return this.setState({data: data});
             })
-
         });
-
-
   }
 
   componentDidMount () {
