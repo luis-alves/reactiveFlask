@@ -9,8 +9,8 @@ import {
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 
-import Menu from "./Navbar/Menu"
-import AccountsMenu from "./Navbar/AccountsMenu"
+import Menu from "./components/Navbar/Menu"
+import AccountsMenu from "./components/Navbar/AccountsMenu"
 
 
 export default class Navigator extends React.Component{

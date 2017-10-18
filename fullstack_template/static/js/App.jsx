@@ -1,6 +1,6 @@
 import React from "react";
 import Navigator from "./Navigator";
-import Main from "./MainBody/Main";
+import Main from "./components/MainBody/Main";
 
 require('../css/fullstack.css');
 

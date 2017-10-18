@@ -3,7 +3,7 @@ import React from "react";
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-require('../../css/fullstack.css');
+require('../../../css/fullstack.css');
 
 class Hello extends React.Component {
   constructor(props) {
