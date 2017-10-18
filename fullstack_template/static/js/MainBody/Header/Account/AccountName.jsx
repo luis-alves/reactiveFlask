@@ -5,9 +5,9 @@ export default class TotalBudget extends React.Component {
     super(props)
   }
 
-  componentDidMount () {
-    console.log(this.props.cleared_balance);
-  }
+  // componentDidMount () {
+  //   console.log(this.props.cleared_balance);
+  // }
 
   render () {
     return (
@@ -18,7 +18,7 @@ export default class TotalBudget extends React.Component {
         <div className="account-name-separator">
           <div className="balance-container">
             <p className="balance-title">Cleared Balance</p>
-            <p className="balance-value">${this.props.cleared_balance}</p>
+            <p className="balance-value">{this.props.balance.cleared}$</p>
           </div>
         </div>
         <div className="balance-separator">
@@ -27,7 +27,7 @@ export default class TotalBudget extends React.Component {
         <div className="account-name-separator">
           <div className="balance-container">
             <p className="balance-title">Uncleared Balance</p>
-            <p className="balance-value">-$435.00</p>
+            <p className="balance-value">{this.props.balance.uncleared}$</p>
           </div>
         </div>
         <div className="balance-separator">
@@ -36,7 +36,7 @@ export default class TotalBudget extends React.Component {
         <div className="account-name-separator">
           <div className="balance-container">
             <p className="balance-title">Working Balance</p>
-            <p className="balance-value">$39,540.00</p>
+            <p className="balance-value">{this.props.balance.working}$</p>
           </div>
         </div>
       </div>

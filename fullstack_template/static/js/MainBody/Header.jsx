@@ -5,8 +5,8 @@ import AccountName from "./Header/Account/AccountName"
 class Header extends React.Component {
   constructor(props) {
     super(props)
-    this.props.cleared_balance = {'total': 0.0}
-    this.state = this.props.cleared_balance
+    // this.props.cleared_balance = {'total': 0.0}
+    this.state = {cleared: 0, uncleared: 0, working: 0}
     this.getValor = this.getValor.bind(this)
   }
 
@@ -18,11 +18,24 @@ class Header extends React.Component {
                 throw new Error("Bad response from server");
             }
             response.json().then(data => {
-              let cleared_balance = 0.0
-              data.forEach(item => {
-                cleared_balance += item['inflow'] - item['outflow']
+              let cleared = 0
+              let uncleared = 0
+              let working = 0
+              data.map(item => {
+                let inflow = parseFloat(item['inflow'])
+                let outflow = parseFloat(item['outflow'])
+                if (item['reconcile'] == 'true') {
+                  cleared += inflow - outflow
+                }
+                else if (item['reconcile'] == 'false') {
+                  uncleared += inflow - outflow
+                }
+                working = cleared + uncleared
               })
-              return setState({'total': cleared_balance});
+              this.setState({cleared: cleared.toFixed(2),
+                             uncleared: uncleared.toFixed(2),
+                             working: working.toFixed(2)
+                           })
             })
         });
   }
@@ -34,7 +47,7 @@ class Header extends React.Component {
   render () {
     return (
       <div className="page-header">
-        <AccountName cleared_balance={this.state}/>
+        <AccountName balance={this.state}/>
       </div>
 
     )
