@@ -143,6 +143,10 @@
   padding-right: 8.8px;
 
 }
+
+.negative-value {
+  color: red !important;
+}
 .subheader {
   height: 33px;
 }

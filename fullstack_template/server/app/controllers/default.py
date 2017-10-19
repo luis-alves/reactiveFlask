@@ -4,6 +4,8 @@ from pymongo import MongoClient
 import json
 from bson.json_util import dumps
 
+import balance
+
 
 @app.route("/")
 def index():

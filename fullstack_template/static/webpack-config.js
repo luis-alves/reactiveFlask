@@ -30,10 +30,23 @@ const config = {
                 use: 'url-loader'
             },
         ],
+        // loaders: [
+        //   {
+        //     test: /\.jsx?$/,
+        //     exclude: /(node_modules)/,
+        //     loader: 'babel-loader',
+        //     query: {
+        //       presets: ['react', 'es2014', 'stage-0'],
+        //       plugins: ['transform-decorators-legacy'],
+        //     }
+        //   }
+        // ],
     },
+
     plugins: [
-        new ExtractTextPlugin('styles.css'),
-    ]
+        new ExtractTextPlugin('styles.css')
+    ],
+
 };
 
 module.exports = config;
