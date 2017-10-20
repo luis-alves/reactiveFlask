@@ -4,6 +4,7 @@ import UnclearedBalance from "./Header/Account/UnclearedBalance"
 import WorkingBalance from "./Header/Account/WorkingBalance"
 
 
+
 class Header extends React.Component {
   constructor(props) {
     super(props)
@@ -23,6 +24,7 @@ class Header extends React.Component {
           </div>
             <WorkingBalance />
           </div>
+
 
       </div>
 

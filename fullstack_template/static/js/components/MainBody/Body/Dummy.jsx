@@ -1,5 +1,6 @@
 import React from "react"
 
+
 export default class Dummy extends React.Component {
   render() {
     return(
@@ -26,6 +27,7 @@ export default class Dummy extends React.Component {
         {/* <div className="entries">
           <Entries />
         </div> */}
+
 
       </div>
     )
