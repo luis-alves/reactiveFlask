@@ -5,6 +5,7 @@ import json
 from bson.json_util import dumps
 
 import balance
+import transactions
 
 
 @app.route("/")

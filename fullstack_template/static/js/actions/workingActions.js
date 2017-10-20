@@ -9,7 +9,7 @@ export function fetchWorkingBalance() {
       dispatch({type: "FETCH_WORKING_FULFILLED", payload: response.data})
     })
     .catch(err => {
-      dispach({type: "FETCH_WORKING_REJECTED", payload: err})
+      dispatch({type: "FETCH_WORKING_REJECTED", payload: err})
     })
   }
 }

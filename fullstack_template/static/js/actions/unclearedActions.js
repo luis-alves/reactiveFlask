@@ -9,7 +9,7 @@ export function fetchUnclearedBalance() {
       dispatch({type: "FETCH_UNCLEARED_FULFILLED", payload: response.data})
     })
     .catch(err => {
-      dispach({type: "FETCH_UNCLEARED_REJECTED", payload: err})
+      dispatch({type: "FETCH_UNCLEARED_REJECTED", payload: err})
     })
   }
 }

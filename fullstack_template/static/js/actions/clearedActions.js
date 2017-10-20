@@ -9,7 +9,7 @@ export function fetchClearedBalance() {
       dispatch({type: "FETCH_CLEARED_FULFILLED", payload: response.data})
     })
     .catch(err => {
-      dispach({type: "FETCH_CLEARED_REJECTED", payload: err})
+      dispatch({type: "FETCH_CLEARED_REJECTED", payload: err})
     })
   }
 }
