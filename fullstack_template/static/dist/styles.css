@@ -278,7 +278,7 @@ button {
 }
 
 .account-body {
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 /*.etiqueta::after {
