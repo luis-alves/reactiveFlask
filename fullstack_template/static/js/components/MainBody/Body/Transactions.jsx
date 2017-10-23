@@ -4,8 +4,9 @@ import {
 } from "react-redux"
 
 import {
-    fetchTransactions
+    fetchTransactions, updateTransactions
 } from "../../../actions/transactionsActions"
+
 
 @connect(store => {
     return {
@@ -23,7 +24,7 @@ export default class Transactions extends React.Component {
     }
 
     changeColor(e) {
-        alert(e.target.parentElement.parentElement.id);
+      this.props.dispatch(updateTransactions(e))
     }
 
     render() {
@@ -35,10 +36,10 @@ export default class Transactions extends React.Component {
                      <label htmlFor="checkboxOneInput"></label>
                    </div>
                    <div className="boxing-info">
-                     <i className="icon-info not-present"></i>
+                     <i className={"icon-info " + row.flag}></i>
                    </div>
                    <div className="boxing-info">
-                     <i className="icon-bookmark unchecked"></i>
+                     <i className={"icon-bookmark " + row.bookmark}></i>
                    </div>
                    <h5 className="date">{row.date}</h5>
                    <h5 className="payee">{row.payee}</h5>
@@ -47,7 +48,11 @@ export default class Transactions extends React.Component {
                    <h5 className="outflow">{row.outflow}</h5>
                    <h5 className="inflow">{row.inflow}</h5>
                    <div className="boxing-reconcile" id="parente">
-                     <i title="Reconcile account" id="filho" className="icon-check unchecked" onClick={this.changeColor}></i>
+                     <i
+                       title="Reconcile account"
+                       id="filho"
+                       className={"icon-check " + row.reconcile}
+                       onClick={this.changeColor}></i>
                    </div>
                  </div>
             )
@@ -63,49 +68,4 @@ export default class Transactions extends React.Component {
       </div>
         )
     }
-
-    // }
-
 }
-
-
-// return (
-//   <div>
-//     <ul>{mapped}</ul>
-//   </div>
-// )
-
-
-// for (var row in this.props.transactions) {
-//   console.log(row);
-//   if (this.props.transactions.hasOwnProperty(row)) {
-//
-//       <div className="article-row">
-//
-//         <div className="table-header">
-//           <div className="checkboxOne">
-//             <input type="checkbox" name="" id="checkboxOneInput" value="1"/>
-//             <label htmlFor="checkboxOneInput"></label>
-//           </div>
-//           <div className="boxing-info">
-//             <i className="icon-info not-present"></i>
-//           </div>
-//           <div className="boxing-info">
-//             <i className="icon-bookmark unchecked"></i>
-//           </div>
-//           {console.log(row.category)}
-//           <h5 className="date">{this.props.transactions}</h5>
-//           {/* <h5 className="payee">{this.props.transactions['payee']}</h5> */}
-//           {/* <h5 className="category">{this.props.transactions['category']}</h5>
-//           <h5 className="memo">{this.props.transactions['Memo']}</h5>
-//           <h5 className="outflow">{this.props.transactions['outflow']}</h5>
-//           <h5 className="inflow">{this.props.transactions['inflow']}</h5> */}
-//           <div className="boxing-reconcile">
-//             <i title="Reconcile account" className="icon-check unchecked"></i>
-//           </div>
-//         </div>
-//
-//       </div>
-//
-//   }
-// }

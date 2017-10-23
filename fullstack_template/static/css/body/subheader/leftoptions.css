@@ -20,9 +20,13 @@
   color: green;
 }
 
-.not-present {
+.info-none {
   visibility: hidden;
 }
+
+  /*.flag-none {
+    visibility: hidden;
+  }*/
 
 .image-add {
   width: 16px;
@@ -89,4 +93,16 @@ button {
 
 .subheader-text {
   font-size: 14px;
+}
+
+.bookmark-grey {
+  color: #E1E1E1;
+}
+
+.bookmark-green {
+  color: #9AC234;
+}
+
+.bookmark-orange {
+  color: #FF7B00;
 }

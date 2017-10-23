@@ -16,7 +16,7 @@ def cleared_account():
     result = {'cleared_value': 0}
     partial = 0
     for item in all_lines:
-        if item['reconcile'] == 'true':
+        if item['reconcile'] == 'checked':
             partial = float(item['inflow']) - float(item['outflow'])
             result['cleared_value'] = result['cleared_value'] + partial
     return dumps("{:.2f}".format(result['cleared_value']))
@@ -32,7 +32,7 @@ def uncleared_account():
 
     result = {'uncleared_value': 0}
     for item in all_lines:
-        if item['reconcile'] == 'false':
+        if item['reconcile'] == 'unchecked':
             partial = float(item['inflow']) - float(item['outflow'])
             result['uncleared_value'] = result['uncleared_value'] + partial
     return dumps("{:.2f}".format(result['uncleared_value']))
