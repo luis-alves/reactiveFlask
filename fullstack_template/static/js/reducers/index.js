@@ -1,14 +1,10 @@
 import { combineReducers } from "redux"
 
-import clearedBalance from "./clearedBalanceReducer"
-import unclearedBalance from "./unclearedBalanceReducer"
-import workingBalance from "./workingBalanceReducer"
 import transactions from "./transactionsReducer"
+import balance from "./balanceReducer"
 
 
 export default combineReducers({
-  clearedBalance,
-  unclearedBalance,
-  workingBalance,
   transactions,
+  balance,
 })
