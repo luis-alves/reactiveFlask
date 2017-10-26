@@ -30,28 +30,28 @@ export default class Transactions extends React.Component {
     render() {
         if (this.props.transactions != null) {
             const rows = this.props.transactions.map((row) =>
-                <div className="table-header" key={row._id['$oid']} id={row._id['$oid']}>
-                   <div className="checkboxOne">
+                <div className="table-header handhover" key={row._id['$oid']} id={row._id['$oid']}>
+                   <div className="checkboxOne handhover">
                      <input type="checkbox" name="" id="checkboxOneInput" value="1"/>
                      <label htmlFor="checkboxOneInput"></label>
                    </div>
-                   <div className="boxing-info">
-                     <i className={"icon-info " + row.flag}></i>
+                   <div className="boxing-info handhover">
+                     <i className={"icon-info handhover " + row.flag}></i>
                    </div>
-                   <div className="boxing-info">
-                     <i className={"icon-bookmark " + row.bookmark}></i>
+                   <div className="boxing-info handhover">
+                     <i className={"icon-bookmark handhover " + row.bookmark}></i>
                    </div>
-                   <h5 className="date">{row.date}</h5>
-                   <h5 className="payee">{row.payee}</h5>
-                   <h5 className="category">{row.category}</h5>
-                   <h5 className="memo">{row.Memo}</h5>
-                   <h5 className="outflow">{row.outflow}</h5>
-                   <h5 className="inflow">{row.inflow}</h5>
-                   <div className="boxing-reconcile" id="parente">
+                   <h5 className="date handhover">{row.date}</h5>
+                   <h5 className="payee handhover">{row.payee}</h5>
+                   <h5 className="category handhover">{row.category}</h5>
+                   <h5 className="memo handhover">{row.Memo}</h5>
+                   <h5 className="outflow handhover">{row.outflow}</h5>
+                   <h5 className="inflow handhover">{row.inflow}</h5>
+                   <div className="boxing-reconcile handhover" id="parente">
                      <i
                        title="Reconcile account"
                        id="filho"
-                       className={"icon-check " + row.reconcile}
+                       className={"icon-check handhover " + row.reconcile}
                        onClick={this.changeColor}></i>
                    </div>
                  </div>

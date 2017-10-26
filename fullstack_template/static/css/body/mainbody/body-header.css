@@ -4,26 +4,38 @@
     align-items: center;
     flex-direction: row;
     /*background-color: lightpink;*/
-    height: 26px;
+    height: 24px;
     margin-top: 0px;
+    border-color: rgb(222, 227, 232);
+    border-style: solid;
+    border-width: 1px;
+    border-collapse: collapse;
+    border-right-style: none;
 }
 
 .table-header>* {
     color: rgb(76, 112, 121);
     padding: 0px 5px;
     width: 100%;
-    height: 25px;
+    height: 24px;
     font-size: 11px;
     /*margin: 0;*/
     text-align: center;
     font-weight: 400;
-    border-color: rgb(222, 227, 232);
-    border-style: solid;
-    border-width: 1px;
-    border-collapse: collapse;
-    border-right-style: none;
+
     margin: 0 0;
-    line-height: 25px;
+    line-height: 24px;
+}
+
+/*.fixedheader {
+  width: 90vw;
+}*/
+
+.fixedheader > *{
+  border-right-style: solid;
+  border-color: rgb(222, 227, 232);
+  border-width: 1px;
+  border-collapse: collapse;
 }
 
 .checkboxOne {
@@ -35,14 +47,13 @@
     margin-left: -1px;
 }
 
-.all-entries {
+.article-row {
     overflow-y: scroll;
 }
 
-
 /* costume scroll bar with 1px width */
 
-.all-entries::-webkit-scrollbar-track {
+/*.all-entries::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #F5F5F5;
 }
@@ -55,7 +66,7 @@
 .all-entries::-webkit-scrollbar-thumb {
     background-color: black;
     border: 0.1px solid red;
-}
+}*/
 
 
 /*.etiqueta::after {
@@ -70,7 +81,7 @@
   height: 25px;
 }*/
 
-.reconcile-img-grey {
+/*.reconcile-img-grey {
     content: url('../../../images/reconcile-grey-luis.svg');
     width: auto;
     margin-top: 4px;
@@ -94,7 +105,7 @@
     content: url('../../../images/reconcile-header-luis.svg');
     width: auto;
     margin-top: 4px;
-}
+}*/
 
 .date {
     min-width: 80.2px;
@@ -126,10 +137,10 @@
     width: 10%;
 }
 
-.reconcile {
+/*.reconcile {
     min-width: 28.2px;
     max-width: 28.2px;
-}
+}*/
 
 .icon-info, .icon-bookmark, .icon-check {
     margin-top: 20px;
@@ -151,4 +162,8 @@
 
 .unchecked {
     color: lightgrey;
+}
+
+.handhover {
+  cursor: pointer;
 }
