@@ -167,3 +167,24 @@
 .handhover {
   cursor: pointer;
 }
+
+.overlay {
+    color: grey;
+    width: 20%;
+    height: 20%;
+    background-color: rgba(black, 0.24);
+    align-items: center;
+    justify-content: center;
+    /*width: 200px;*/
+    left: 1600px;
+}
+
+.content {
+  left: 300px;
+  margin: 0.5rem;
+  padding: 1rem;
+  outline: none;
+  overflow: auto;
+  background-color: white;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.24), 0 16px 40px 0 rgba(0, 0, 0, 0.32);
+}
