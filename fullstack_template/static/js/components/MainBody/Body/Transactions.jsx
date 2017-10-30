@@ -2,31 +2,31 @@ import React from "react"
 import {
     connect
 } from "react-redux"
-
-import {
-    fetchTransactions, updateTransactions
-} from "../../../actions/transactionsActions"
 import Modal from "react-modal"
 
-var modalStyles = {
-  overlay : {
-    color: 'green',
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'blue',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  content : {
-    left: '300px',
-    margin: '0.5rem',
-    padding: '1rem',
-    outline: 'none',
-    overflow: 'auto',
-    backgroundColor: 'white',
-    boxShadow: '0 10px 20px 0 rgba(0, 0, 0, 0.24), 0 16px 40px 0 rgba(0, 0, 0, 0.32)',
-  }
-}
+
+import { fetchTransactions, updateTransactions } from "../../../actions/transactionsActions"
+import ColorModal from "./modal/ColorModal"
+
+// var modalStyles = {
+//   overlay : {
+//     backgroundColor: 'none',
+//   },
+//   content : {
+//     top: {event},
+//     left: '340px',
+//     height:'260px',
+//     width: '180px',
+//     padding: '0px 15px',
+//     // margin: '0px',
+//     // margin: '0.5rem',
+//     // padding: '1rem',
+//     // outline: 'none',
+//     // overflow: 'auto',
+//     // backgroundColor: 'white',
+//     // boxShadow: '0 10px 20px 0 rgba(0, 0, 0, 0.24), 0 16px 40px 0 rgba(0, 0, 0, 0.32)',
+//   }
+// }
 
 @connect(store => {
     return {
@@ -54,14 +54,12 @@ export default class Transactions extends React.Component {
     //   this.setState({isActive: !this.state.isActive})
     // }
     setRow (row, event) {
-      console.log({row});
       this.setState({row: event})
     }
 
+    handleclick = (e) => this.setState({pointerY: e.clientY});
 
     render() {
-
-
       if (this.props.transactions != null) {
           const rows = this.props.transactions.map((row) =>
               <div className="table-header handhover" key={row._id['$oid']} id={row._id['$oid']}>
@@ -72,9 +70,9 @@ export default class Transactions extends React.Component {
                  <div className="boxing-info handhover">
                    <i className={"icon-info handhover " + row.flag}></i>
                  </div>
-                 <div className="boxing-info handhover">
+                 <div className="boxing-info handhover" onClick={(e) => this.handleclick(e)}>
                    <i className={"icon-bookmark handhover " + row.bookmark}
-                      onClick={this.setRow.bind(row, event)}>
+                      onClick={this.setRow.bind(null, row)}>
 
                     </i>
                  </div>
@@ -95,21 +93,50 @@ export default class Transactions extends React.Component {
           )
           return (
               <div>
-        <div className="article-row">{rows}</div>
-        <Modal isOpen={this.state.row != null}
-               onRequestClose={this.setRow.bind(null)}
-               style={modalStyles}
-              //  className='modal-content-color'
-              //  overlayClassName='modal-overlay-color'
-        >
-          <h1>EHlloo</h1>
-        </Modal>
-      </div>
+                <div className="article-row">{rows}</div>
+                  <Modal isOpen={this.state.row != null}
+                         onRequestClose={this.setRow.bind(null)}
+                        //  style={modalStyles}
+                        //  className='modal-content-color-container'
+                        //  overlayClassName='modal-overlay-color-container'
+                        style={
+                          {
+                            overlay : {
+                              left: '400px',
+                              width: '180px',
+                              height: '260px',
+                              background: 'red',
+                              position: 'relative',
+                              // -moz-border-radius:    '10px'
+                              // -webkit-border-radius: '10px'
+                              borderRadius:         '10px',
+                              // backgroundColor: 'none',
+                            },
+                            content : {
+                              top: this.state.pointerY,
+                              left: '340px',
+                              height:'260px',
+                              width: '180px',
+                              padding: '0px 15px',
+                              // margin: '0px',
+                              // margin: '0.5rem',
+                              // padding: '1rem',
+                              // outline: 'none',
+                              // overflow: 'auto',
+                              // backgroundColor: 'white',
+                              // boxShadow: '0 10px 20px 0 rgba(0, 0, 0, 0.24), 0 16px 40px 0 rgba(0, 0, 0, 0.32)',
+                            }
+                          }
+                        }
+                  >
+                    <ColorModal />
+                  </Modal>
+              </div>
           )
       }
       return (
           <div>
-      <h2>No transactions data</h2>
+
     </div>
       )
     }
