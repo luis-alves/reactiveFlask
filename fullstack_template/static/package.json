@@ -48,6 +48,7 @@
     "react-modal": "^3.1.0",
     "react-redux": "^5.0.6",
     "react-spinkit": "^3.0.0",
+    "react-style-tag": "^1.4.0",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^4.4.1",

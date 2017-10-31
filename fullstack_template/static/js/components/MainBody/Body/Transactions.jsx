@@ -28,6 +28,7 @@ import ColorModal from "./modal/ColorModal"
 //   }
 // }
 
+
 @connect(store => {
     return {
         transactions: store.transactions.transactions
@@ -39,6 +40,7 @@ export default class Transactions extends React.Component {
         this.state = {isActive: false}
         this.changeColor = this.changeColor.bind(this)
         this.setRow = this.setRow.bind(this)
+        // this.close = this.close.bind(this)
     }
 
     componentWillMount() {
@@ -55,14 +57,25 @@ export default class Transactions extends React.Component {
     // }
     setRow (row, event) {
       this.setState({row: event})
+      var el = this.refs.overlay;
+	    el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
     }
 
     handleclick = (e) => this.setState({pointerY: e.clientY});
 
+    // close (event) {
+    //   var el = this.refs.overlay;
+    //   console.log(el);
+	  //   el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    // }
+
+
     render() {
+
       if (this.props.transactions != null) {
           const rows = this.props.transactions.map((row) =>
-              <div className="table-header handhover" key={row._id['$oid']} id={row._id['$oid']}>
+              <div className="table-header handhover" key={row._id['$oid']} id={row._id['$oid']} >
+
                  <div className="checkboxOne handhover">
                    <input type="checkbox" name="" id="checkboxOneInput" value="1"/>
                    <label htmlFor="checkboxOneInput"></label>
@@ -73,8 +86,7 @@ export default class Transactions extends React.Component {
                  <div className="boxing-info handhover" onClick={(e) => this.handleclick(e)}>
                    <i className={"icon-bookmark handhover " + row.bookmark}
                       onClick={this.setRow.bind(null, row)}>
-
-                    </i>
+                   </i>
                  </div>
                  <h5 className="date handhover">{row.date}</h5>
                  <h5 className="payee handhover">{row.payee}</h5>
@@ -90,49 +102,17 @@ export default class Transactions extends React.Component {
                      onClick={this.changeColor}></i>
                  </div>
                </div>
+
           )
           return (
               <div>
-                <div className="article-row">{rows}</div>
-                  <Modal isOpen={this.state.row != null}
-                         onRequestClose={this.setRow.bind(null)}
-                        //  style={modalStyles}
-                        //  className='modal-content-color-container'
-                        //  overlayClassName='modal-overlay-color-container'
-                        style={
-                          {
-                            overlay : {
-                              left: '400px',
-                              width: '180px',
-                              height: '260px',
-                              background: 'red',
-                              zIndex:'999',
-                              position: 'relative',
-                              // -moz-border-radius:    '10px'
-                              // -webkit-border-radius: '10px'
-                              borderRadius:         '10px',
-                              // backgroundColor: 'none',
-                            },
-                            content : {
-                              top: this.state.pointerY,
-                              zIndex:'9999',
-                              // left: '340px',
-                              height:'260px',
-                              width: '180px',
-                              padding: '0px 15px',
-                              // margin: '0px',
-                              // margin: '0.5rem',
-                              // padding: '1rem',
-                              // outline: 'none',
-                              // overflow: 'auto',
-                              // backgroundColor: 'white',
-                              // boxShadow: '0 10px 20px 0 rgba(0, 0, 0, 0.24), 0 16px 40px 0 rgba(0, 0, 0, 0.32)',
-                            }
-                          }
-                        }
-                  >
+                <div id="overlay" ref="overlay" onClick={this.setRow.bind(null)}>
+                  <div>
                     <ColorModal />
-                  </Modal>
+                  </div>
+                </div>
+                <div className="article-row">{rows}</div>
+
               </div>
           )
       }

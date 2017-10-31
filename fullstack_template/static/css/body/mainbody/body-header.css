@@ -168,51 +168,54 @@
   cursor: pointer;
 }
 
-.overlay {
-    color: grey;
-    width: 20%;
-    height: 20%;
-    background-color: rgba(black, 0.24);
-    align-items: center;
-    justify-content: center;
-    /*width: 200px;*/
-    left: 1600px;
-}
-
-.content {
-  left: 300px;
-  margin: 0.5rem;
-  padding: 1rem;
-  outline: none;
-  overflow: auto;
-  background-color: white;
+.modal-content-color {
+  text-align: center;
+  width: 200px;
+  height: 260px;
+  background: white;
+  padding: 3px 10px;
+  position: relative;
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.24), 0 16px 40px 0 rgba(0, 0, 0, 0.32);
 }
 
-.modal-content-color {
-  text-align: center;
+.modal-content-color:before {
+  content:"";
+   position: absolute;
+   right: 100%;
+   top: 20px;
+   width: 0;
+   height: 0;
+   border-top: 13px solid transparent;
+   border-right: 26px solid white;
+   border-bottom: 13px solid transparent;
 }
 
 .modal-content-color > * {
   margin: 10px 0px;
   border-radius: 5px;
   line-height: 30px;
+  width: 200px;
 }
 
 .modal-content-color-name {
   margin: 0px;
   color: white;
   font-size: 12px;
+  font-weight: 400;
 }
 
 .modal-content-color-green {
   margin-top: 14px;
   background-color: #9AC234;
-  font-weight: 400;
+
 }
 
 .modal-content-color-red {
   background-color: #D43D2E;
+
 }
 
 .modal-content-color-orange {
@@ -231,31 +234,20 @@
   background-color: #9384B7;
 }
 
-.modal-content-color-container {
-
-  width: 280px;
-  height: 260px;
-  background: red;
-  /*position: relative;*/
-  -moz-border-radius:    10px;
-  -webkit-border-radius: 10px;
-  border-radius:         10px;
-}
-
-.modal-content-color-container:before{
-  content:"";
-  position: absolute;
-  right: 100%;
-  top: 26px;
-  width: 0;
-  height: 0;
-  border-top: 13px solid transparent;
-  border-right: 26px solid red;
-  border-bottom: 13px solid transparent;
-}
-
 .modal-overlay-color-container {
   background-color: lightblue;
   height: 100%
+}
 
+#overlay {
+  visibility: hidden;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width:100%;
+  height:100%;
+  padding-left: 360px;
+  padding-top: 40px;
+  text-align:center;
+  z-index: 1000;
 }
