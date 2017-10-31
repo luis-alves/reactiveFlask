@@ -489,11 +489,11 @@ button {
 }
 
 .modal-content-color-container {
-  left: 400px;
-  width: 180px;
+
+  width: 280px;
   height: 260px;
   background: red;
-  position: relative;
+  /*position: relative;*/
   -moz-border-radius:    10px;
   -webkit-border-radius: 10px;
   border-radius:         10px;

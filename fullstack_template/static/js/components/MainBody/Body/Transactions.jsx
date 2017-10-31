@@ -106,6 +106,7 @@ export default class Transactions extends React.Component {
                               width: '180px',
                               height: '260px',
                               background: 'red',
+                              zIndex:'999',
                               position: 'relative',
                               // -moz-border-radius:    '10px'
                               // -webkit-border-radius: '10px'
@@ -114,7 +115,8 @@ export default class Transactions extends React.Component {
                             },
                             content : {
                               top: this.state.pointerY,
-                              left: '340px',
+                              zIndex:'9999',
+                              // left: '340px',
                               height:'260px',
                               width: '180px',
                               padding: '0px 15px',
