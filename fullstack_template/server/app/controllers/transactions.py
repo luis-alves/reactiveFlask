@@ -41,3 +41,31 @@ def reconcileflag():
 
     return dumps({'reconcile': reconcile['reconcile'],
                   'id': data['elementsId']})
+
+
+@app.route('/bookmark', methods=['POST'])
+def bookmark():
+    client = MongoClient("mongodb://localhost")
+    db = client.reactingflask
+    entries = db.entries
+
+    data = request.get_json()
+    print data
+
+    bookmark = entries.find_one({"_id": ObjectId(data['id'])})
+
+    if bookmark['bookmark'] != data['color']:
+        entries.find_one_and_update(
+            {"_id": ObjectId(data['id'])},
+            {"$set": {"bookmark": data['color']}},
+        )
+    else:
+        entries.find_one_and_update(
+            {"_id": ObjectId(data['id'])},
+            {"$set": {"bookmark": 'grey'}},
+        )
+
+    bookmark = entries.find_one({"_id": ObjectId(data['id'])})
+
+    return dumps({'bookmark': bookmark['bookmark'],
+                  'id': data['id']})

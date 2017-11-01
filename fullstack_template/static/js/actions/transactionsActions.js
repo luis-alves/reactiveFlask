@@ -36,13 +36,47 @@ export function updateTransactions(e) {
     })
     // Totals
     // Fetching cleared balance
-    dispatch({type: "FETCH_BALAMCE_FETCHING"})
+    dispatch({type: "FETCH_BALANCE_FETCHING"})
     axios.get(window.location.href + 'balance')
     .then(response => {
       dispatch({type: "FETCH_BALANCE_FULFILLED", payload: response.data})
     })
     .catch(err => {
       dispatch({type: "FETCH_BALANCE_REJECTED", payload: err})
+    })
+  }
+}
+/* Update database of the color of the bookmarks */
+export function updateTransactionsBookmark(color, id) {
+  return function (dispatch) {
+    dispatch({type: "UPDATE_TRANSACTIONS_FETCHING"})
+
+    axios.post(window.location.href + 'bookmark', {
+      color: color,
+      id: id
+      // elementsId: e.target.parentElement.parentElement.id,
+      // elementsId: e.target.parentElement.parentElement.id,
+    }
+    ).then(response => {
+      dispatch({
+        type: "UPDATE_TRANSACTIONS_FULFILLED",
+        payload: response.data.bookmark,
+        id: response.data.id})
+    })
+    .catch(err => {
+      dispatch({
+        type: "UPDATE_TRANSACTIONS_REJECTED",
+        payload: err})
+    })
+    // Fetch updated transactions
+    dispatch({type: "FETCH_TRANSACTIONS_FETCHING"})
+
+    axios.get(window.location.href + 'transactions')
+    .then(response => {
+      dispatch({type: "FETCH_TRANSACTIONS_FULFILLED", payload: response.data})
+    })
+    .catch(err => {
+      dispatch({type: "FETCH_TRANSACTIONS_REJECTED", payload: err})
     })
   }
 }

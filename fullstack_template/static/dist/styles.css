@@ -435,7 +435,7 @@ button {
   -moz-border-radius:    10px;
   -webkit-border-radius: 10px;
   border-radius:         10px;
-  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.24), 0 16px 40px 0 rgba(0, 0, 0, 0.32);
+  box-shadow: -20px 20px 25px rgba(0, 0, 0, 0.14);
 }
 
 .modal-content-color:before {
@@ -496,17 +496,32 @@ button {
   height: 100%
 }
 
-#overlay {
-  visibility: hidden;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width:100%;
-  height:100%;
-  padding-left: 360px;
-  padding-top: 40px;
-  text-align:center;
-  z-index: 1000;
+.red {
+  color: #D43D2E;
+}
+
+.green {
+  color: #9AC234;
+}
+
+.orange {
+  color: #FF7B00;
+}
+
+.yellow {
+  color: #F8E136;
+}
+
+.blue {
+  color: #0082CB;
+}
+
+.purple {
+  color: #9384B7;
+}
+
+.grey {
+  color: #E1E1E1;
 }
 .bodymain {
   margin-left: 260px;
