@@ -14,8 +14,6 @@ export default class ColorModal extends React.Component {
   }
 
   changeBokkmarkColor(color, id) {
-    console.log(id);
-    console.log(color);
     this.props.dispatch(updateTransactionsBookmark(color, id))
   }
 

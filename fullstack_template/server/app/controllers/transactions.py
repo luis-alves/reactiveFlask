@@ -50,7 +50,6 @@ def bookmark():
     entries = db.entries
 
     data = request.get_json()
-    print data
 
     bookmark = entries.find_one({"_id": ObjectId(data['id'])})
 

@@ -37,7 +37,6 @@ export default class Transactions extends React.Component {
 
     handleclick = (e) => {
       this.setState({pointerY: e.target.offsetTop-25})
-      console.log(e.target.offsetTop);
     }
 
     render() {
