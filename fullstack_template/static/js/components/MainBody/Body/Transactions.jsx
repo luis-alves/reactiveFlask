@@ -6,7 +6,7 @@ import {
 
 import { fetchTransactions, updateTransactions } from "../../../actions/transactionsActions"
 import ColorModal from "./modal/ColorModal"
-
+import DataInput from "./inputs/DataInput"
 
 @connect(store => {
     return {
@@ -19,6 +19,9 @@ export default class Transactions extends React.Component {
         this.state = {isActive: false}
         this.changeColor = this.changeColor.bind(this)
         this.setRow = this.setRow.bind(this)
+        this.state = {cursor: 'handhover', previous: null}
+        this.handleHandover = this.handleHandover.bind(this)
+
     }
 
     componentWillMount() {
@@ -26,6 +29,7 @@ export default class Transactions extends React.Component {
     }
 
     changeColor(e) {
+      e.stopPropagation()
       this.props.dispatch(updateTransactions(e))
     }
 
@@ -36,35 +40,148 @@ export default class Transactions extends React.Component {
     }
 
     handleclick = (e) => {
+      e.stopPropagation()
       this.setState({pointerY: e.target.offsetTop-25})
+    }
+
+    handleHandover(event) {
+      let target = event.target
+      this.setState({previous: target})
+
+      if (target.classList.contains('trigger')) {
+        console.log('0');
+        target.parentElement.classList.add('is-selected', 'hand-text')
+        let checkboxOne = target.parentElement.getElementsByClassName('checkbox')
+        // let checkboxOne = checkboxDiv.getElementsByClassName('checkbox')
+        console.log(checkboxOne);
+
+        checkboxOne[0].checked = true
+        // checkboxOne.classList.add('is-checked')
+        // Se existe um clique anterior
+        if (this.state.previous != null) {
+          // Se o clique anterior for trigger
+          // this.state.previous.parentElement.classList.remove('is-selected')
+          if (this.state.previous.classList.contains('trigger')) {
+            console.log('1');
+            if (this.state.previous !== target) {
+              console.log('2');
+              this.state.previous.parentElement.classList.remove('is-selected', 'hand-text')
+              let previousCheckbox = this.state.previous.parentElement.getElementsByClassName('checkbox')
+
+              console.log(checkboxOne[0]);
+              previousCheckbox[0].checked = false
+            }
+            else {
+              console.log('3');
+              this.state.previous.parentElement.classList.add('hand-text')
+            }
+          }
+          else if (this.state.previous.classList.contains('table-header')) {
+            console.log('4');
+            this.state.previous.classList.remove('is-selected', 'hand-text')
+          }
+          else if (this.state.previous.classList.contains('checkbox')) {
+            console.log('5');
+            let checkbox = document.getElementsByClassName('is-checked')
+            console.log('length: ' + checkbox);
+            // [].forEach.call(checkbox, function(el) {
+            //     console.log(el.id);
+            // });
+              // el.checked = false
+              // el.parentElement.parentElement.classList.remove('is-selected', 'hand-text')
+              // el.classList.remove('is-checked')
+
+            // for (var i = 0; i < checkbox.length; i++) {
+            //   console.log(checkbox[i]);
+            //   checkbox[i].checked = false
+            //   checkbox[i].parentElement.parentElement.classList.remove('is-selected', 'hand-text')
+            //   checkbox[i].classList.remove('is-checked')
+            // }
+            for (var i = 0; i < checkbox.length; i++) {
+              console.log('remove is-checked');
+            }
+
+
+            // checkbox.classList.remove('is-checked')
+          }
+          // Se não for trigger
+          else {
+            console.log('6');
+            this.state.previous.parentElement.parentElement.classList.remove('is-selected', 'hand-text')
+          }
+        }
+      }
+      else if (target.classList.contains('table-header')) {
+        target.classList.add('is-selected', 'hand-text')
+        if (this.state.previous != null) {
+          if (this.state.previous.classList.contains('trigger')) {
+            this.state.previous.parentElement.classList.remove('is-selected', 'hand-text')
+          }
+          else if (this.state.previous.classList.contains('table-header')) {
+            this.state.previous.classList.remove('is-selected', 'hand-text')
+          }
+          else {
+            this.state.previous.parentElement.parentElement.classList.remove('is-selected', 'hand-text')
+          }
+        }
+      }
+      else if (target.classList.contains('checkbox')) {
+        target.parentElement.parentElement.classList.add('is-selected', 'hand-text')
+        target.classList.add('is-checked')
+      }
+      else {
+        target.parentElement.parentElement.classList.add('is-selected', 'hand-text')
+        // target.classList.add('hand-text')
+        if (this.state.previous != null) {
+          if (this.state.previous.classList.contains('trigger')) {
+            this.state.previous.parentElement.classList.remove('is-selected', 'hand-text')
+          }
+          else if (this.state.previous.classList.contains('table-header')) {
+            this.state.previous.classList.remove('is-selected', 'hand-text')
+          }
+          else {
+            this.state.previous.parentElement.parentElement.classList.remove('is-selected', 'hand-text')
+          }
+        }
+      }
+
+
+
     }
 
     render() {
       if (this.props.transactions != null) {
           const rows = this.props.transactions.map((row) =>
-              <div className="table-header handhover"
+              <div className={"table-header handhover"}
                    key={row._id['$oid']}
-                   id={row._id['$oid']}>
-                 <div className="checkboxOne handhover">
-                   <input type="checkbox" name="" id="checkboxOneInput" value="1"/>
+                   id={row._id['$oid']}
+                   onClick={this.handleHandover.bind(event)}
+                   >
+                 <div className="checkboxOne row-item trigger">
+                   <input className=" handhover checkbox" type="checkbox" name="" value="1"/>
                    <label htmlFor="checkboxOneInput"></label>
                  </div>
-                 <div className="boxing-info handhover">
+                 <div className="boxing-info row-item trigger">
                    <i className={"icon-info handhover " + row.flag}></i>
                  </div>
-                 <div className="boxing-info handhover" onClick={(e) => this.handleclick(e)}>
+                 <div className="boxing-info row-item trigger" onClick={(e) => this.handleclick(e)}>
                    <i className={"icon-bookmark handhover " + row.bookmark}
                       onClick={this.setRow.bind(null, row)}
                       data-_id={row._id['$oid']}>
                    </i>
                  </div>
-                 <h5 className="date handhover">{row.date}</h5>
-                 <h5 className="payee handhover">{row.payee}</h5>
-                 <h5 className="category handhover">{row.category}</h5>
-                 <h5 className="memo handhover">{row.Memo}</h5>
-                 <h5 className="outflow handhover">{row.outflow}</h5>
-                 <h5 className="inflow handhover">{row.inflow}</h5>
-                 <div className="boxing-reconcile handhover" id="parente">
+                 {/* <div className="table-header-input "> */}
+                 <DataInput values={
+                   {date:row.date,
+                    payee: row.payee,
+                    category: row.category,
+                    memo: row.memo,
+                    outflow: row.outflow,
+                    inflow: row.inflow
+                   }
+                 }/>
+               {/* </div> */}
+                 <div className="boxing-reconcile row-item trigger">
                    <i
                      title="Reconcile account"
                      id="filho"

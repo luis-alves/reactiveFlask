@@ -13,7 +13,15 @@
     border-right-style: none;
 }
 
-.table-header>* {
+.table-header-input {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.row-item {
     color: rgb(76, 112, 121);
     padding: 0px 5px;
     width: 100%;
@@ -36,6 +44,10 @@
   border-color: rgb(222, 227, 232);
   border-width: 1px;
   border-collapse: collapse;
+}
+
+.blank {
+  width: 20px;
 }
 
 .checkboxOne {
@@ -164,8 +176,25 @@
     color: lightgrey;
 }
 
+.checked {
+  color: rgb(22, 163, 54);
+}
+
 .handhover {
   cursor: pointer;
+}
+
+.hand-text {
+  cursor: text;
+}
+
+.is-selected {
+  background-color: black;
+}
+
+.is-selected .row-item {
+
+  color: white;
 }
 
 .modal-content-color {
