@@ -50,12 +50,7 @@ export default class Transactions extends React.Component {
 
       if (target.classList.contains('trigger')) {
         console.log('0');
-        target.parentElement.classList.add('is-selected', 'hand-text')
-        let checkboxOne = target.parentElement.getElementsByClassName('checkbox')
-        // let checkboxOne = checkboxDiv.getElementsByClassName('checkbox')
-        console.log(checkboxOne);
 
-        checkboxOne[0].checked = true
         // checkboxOne.classList.add('is-checked')
         // Se existe um clique anterior
         if (this.state.previous != null) {
@@ -68,7 +63,6 @@ export default class Transactions extends React.Component {
               this.state.previous.parentElement.classList.remove('is-selected', 'hand-text')
               let previousCheckbox = this.state.previous.parentElement.getElementsByClassName('checkbox')
 
-              console.log(checkboxOne[0]);
               previousCheckbox[0].checked = false
             }
             else {
@@ -83,26 +77,12 @@ export default class Transactions extends React.Component {
           else if (this.state.previous.classList.contains('checkbox')) {
             console.log('5');
             let checkbox = document.getElementsByClassName('is-checked')
-            console.log('length: ' + checkbox);
-            // [].forEach.call(checkbox, function(el) {
-            //     console.log(el.id);
-            // });
-              // el.checked = false
-              // el.parentElement.parentElement.classList.remove('is-selected', 'hand-text')
-              // el.classList.remove('is-checked')
-
-            // for (var i = 0; i < checkbox.length; i++) {
-            //   console.log(checkbox[i]);
-            //   checkbox[i].checked = false
-            //   checkbox[i].parentElement.parentElement.classList.remove('is-selected', 'hand-text')
-            //   checkbox[i].classList.remove('is-checked')
-            // }
             for (var i = 0; i < checkbox.length; i++) {
-              console.log('remove is-checked');
+              checkbox[i].checked = false
             }
-
-
-            // checkbox.classList.remove('is-checked')
+            for (var i = checkbox.length-1; i >=0; i--) {
+               checkbox[i].parentElement.parentElement.classList.remove('is-selected', 'hand-text')
+            }
           }
           // Se não for trigger
           else {
@@ -110,6 +90,11 @@ export default class Transactions extends React.Component {
             this.state.previous.parentElement.parentElement.classList.remove('is-selected', 'hand-text')
           }
         }
+        target.parentElement.classList.add('is-selected', 'hand-text')
+        let checkboxOne = target.parentElement.getElementsByClassName('checkbox')
+        // let checkboxOne = checkboxDiv.getElementsByClassName('checkbox')
+        checkboxOne[0].checked = true
+        checkboxOne[0].classList.add('is-checked')
       }
       else if (target.classList.contains('table-header')) {
         target.classList.add('is-selected', 'hand-text')
