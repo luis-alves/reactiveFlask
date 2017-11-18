@@ -4,6 +4,11 @@
 /fullstack_template/server/Lib
 /fullstack_template/server/Scripts
 /fullstack_template/server/tcl
+/fullstack_template/server/app/controllers/__init_.pyc
+/fullstack_template/server/app/controllers/balance.pyc
+/fullstack_template/server/app/controllers/default.pyc
+/fullstack_template/server/app/controllers/transactions.pyc
+/fullstack_template/server/app/models/__init__.pyc
 /fullstack_template/static/node_modules
 /fullstack_template/server/flaskenv
 /fullstack_template/static/bootstrap
