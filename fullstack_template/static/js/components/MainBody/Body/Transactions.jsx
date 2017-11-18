@@ -21,7 +21,11 @@ export default class Transactions extends React.Component {
         this.setRow = this.setRow.bind(this)
         this.state = {cursor: 'handhover', previous: null}
         this.handleHandover = this.handleHandover.bind(this)
-
+        this.uncheckPrevious = this.uncheckPrevious.bind(this)
+        this.uncheckBox = this.uncheckBox.bind(this)
+        this.uncheckAnotherBox = this.uncheckAnotherBox.bind(this)
+        this.uncheckSingleParent = this.uncheckSingleParent.bind(this)
+        this.uncheckTopParentBox = this.uncheckTopParentBox.bind(this)
     }
 
     componentWillMount() {
@@ -44,92 +48,120 @@ export default class Transactions extends React.Component {
       this.setState({pointerY: e.target.offsetTop-25})
     }
 
+    uncheckPrevious() {
+      let checkbox = this.state.previous.getElementsByClassName('checkbox')
+      for (var i = 0; i < checkbox.length; i++) {
+        checkbox[i].checked = false
+      }
+      for (var i = checkbox.length-1; i >= 0; i--) {
+        checkbox[i].classList.remove('is-checked')
+      }
+    }
+
+    uncheckBox() {
+      let checkbox = document.getElementsByClassName('is-checked')
+      for (var i = 0; i < checkbox.length; i++) {
+        checkbox[i].checked = false
+      }
+      for (var i = checkbox.length-1; i >=0; i--) {
+         checkbox[i].parentElement.parentElement.classList.remove('is-selected', 'hand-text')
+         checkbox[i].classList.remove('is-checked')
+      }
+    }
+
+    uncheckAnotherBox() {
+      let checkbox = this.state.previous.parentElement.parentElement.getElementsByClassName('checkbox')
+      for (var i = 0; i < checkbox.length; i++) {
+        checkbox[i].checked = false
+      }
+      for (var i = checkbox.length-1; i >= 0; i--) {
+        checkbox[i].classList.remove('is-checked')
+      }
+    }
+
+    uncheckSingleParent() {
+      let checkbox = this.state.previous.parentElement.getElementsByClassName('checkbox')
+      for (var i = 0; i < checkbox.length; i++) {
+        checkbox[i].checked = false
+      }
+      for (var i = checkbox.length-1; i >= 0; i--) {
+        checkbox[i].classList.remove('is-checked')
+      }
+    }
+
+    uncheckTopParentBox() {
+      let checkbox = this.state.previous.getElementsByClassName('checkbox')
+      for (var i = 0; i < checkbox.length; i++) {
+        checkbox[i].checked = false
+      }
+      for (var i = checkbox.length-1; i >= 0; i--) {
+        checkbox[i].classList.remove('is-checked')
+      }
+
+    }
+
     handleHandover(event) {
       let target = event.target
       this.setState({previous: target})
 
       if (target.classList.contains('trigger')) {
-        console.log('0');
-
-        // checkboxOne.classList.add('is-checked')
-        // Se existe um clique anterior
         if (this.state.previous != null) {
-          // Se o clique anterior for trigger
-          // this.state.previous.parentElement.classList.remove('is-selected')
           if (this.state.previous.classList.contains('trigger')) {
-            console.log('1');
             if (this.state.previous !== target) {
-              console.log('2');
               this.state.previous.parentElement.classList.remove('is-selected', 'hand-text')
               let previousCheckbox = this.state.previous.parentElement.getElementsByClassName('checkbox')
-
               previousCheckbox[0].checked = false
             }
             else {
-              console.log('3');
               this.state.previous.parentElement.classList.add('hand-text')
             }
           }
           else if (this.state.previous.classList.contains('table-header')) {
-            console.log('4');
             this.state.previous.classList.remove('is-selected', 'hand-text')
+            this.uncheckPrevious()
           }
           else if (this.state.previous.classList.contains('checkbox')) {
-            console.log('5');
-            let checkbox = document.getElementsByClassName('is-checked')
-            for (var i = 0; i < checkbox.length; i++) {
-              checkbox[i].checked = false
-            }
-            for (var i = checkbox.length-1; i >=0; i--) {
-               checkbox[i].parentElement.parentElement.classList.remove('is-selected', 'hand-text')
-            }
+            this.uncheckBox()
           }
-          // Se não for trigger
           else {
-            console.log('6');
             this.state.previous.parentElement.parentElement.classList.remove('is-selected', 'hand-text')
-            let checkbox = this.state.previous.parentElement.parentElement.getElementsByClassName('checkbox')
-            for (var i = 0; i < checkbox.length; i++) {
-              checkbox[i].checked = false
-            }
-            for (var i = checkbox.length-1; i >= 0; i--) {
-              checkbox[i].classList.remove('is-checked')
-            }
+            this.uncheckAnotherBox()
           }
         }
         target.parentElement.classList.add('is-selected', 'hand-text')
         let checkboxOne = target.parentElement.getElementsByClassName('checkbox')
-        // let checkboxOne = checkboxDiv.getElementsByClassName('checkbox')
         checkboxOne[0].checked = true
         checkboxOne[0].classList.add('is-checked')
       }
       else if (target.classList.contains('table-header')) {
-        target.classList.add('is-selected', 'hand-text')
         if (this.state.previous != null) {
           if (this.state.previous.classList.contains('trigger')) {
             this.state.previous.parentElement.classList.remove('is-selected', 'hand-text')
+            this.uncheckSingleParent()
           }
           else if (this.state.previous.classList.contains('table-header')) {
             this.state.previous.classList.remove('is-selected', 'hand-text')
+            this.uncheckTopParentBox()
+          }
+          else if (this.state.previous.classList.contains('checkbox')) {
+            this.uncheckBox()
           }
           else {
             this.state.previous.parentElement.parentElement.classList.remove('is-selected', 'hand-text')
+            this.uncheckAnotherBox()
           }
         }
+        target.classList.add('is-selected', 'hand-text')
+        let checkboxOne = target.getElementsByClassName('checkbox')
+        checkboxOne[0].checked = true
+        checkboxOne[0].classList.add('is-checked')
       }
       else if (target.classList.contains('checkbox')) {
         if (target.classList.contains('is-checked')) {
-          console.log('1');
           target.parentElement.parentElement.classList.remove('is-selected', 'hand-text')
           target.classList.remove('is-checked')
           target.checked = false
         }
-        // else if (target === this.state.previous) {
-        //   console.log('2');
-        //   target.parentElement.parentElement.classList.remove('is-selected', 'hand-text')
-        //   target.classList.remove('is-checked')
-        //   // target.checked = false
-        // }
         else {
           target.parentElement.parentElement.classList.add('is-selected', 'hand-text')
           target.classList.add('is-checked')
@@ -139,37 +171,18 @@ export default class Transactions extends React.Component {
         if (this.state.previous != null) {
           if (this.state.previous.classList.contains('trigger')) {
             this.state.previous.parentElement.classList.remove('is-selected', 'hand-text')
-            let checkbox = this.state.previous.parentElement.getElementsByClassName('checkbox')
-            for (var i = 0; i < checkbox.length; i++) {
-              checkbox[i].checked = false
-            }
-            for (var i = checkbox.length-1; i >= 0; i--) {
-              checkbox[i].classList.remove('is-checked')
-            }
+            this.uncheckSingleParent()
           }
           else if (this.state.previous.classList.contains('table-header')) {
             this.state.previous.classList.remove('is-selected', 'hand-text')
+            this.uncheckTopParentBox()
           }
           else if (this.state.previous.classList.contains('checkbox')) {
-            console.log('5');
-            let checkbox = document.getElementsByClassName('is-checked')
-            for (var i = 0; i < checkbox.length; i++) {
-              checkbox[i].checked = false
-            }
-            for (var i = checkbox.length-1; i >=0; i--) {
-               checkbox[i].parentElement.parentElement.classList.remove('is-selected', 'hand-text')
-               checkbox[i].classList.remove('is-checked')
-            }
+            this.uncheckBox()
           }
           else {
             this.state.previous.parentElement.parentElement.classList.remove('is-selected', 'hand-text')
-            let checkbox = this.state.previous.parentElement.parentElement.getElementsByClassName('checkbox')
-            for (var i = 0; i < checkbox.length; i++) {
-              checkbox[i].checked = false
-            }
-            for (var i = checkbox.length-1; i >= 0; i--) {
-              checkbox[i].classList.remove('is-checked')
-            }
+            this.uncheckAnotherBox()
           }
         }
         target.parentElement.parentElement.classList.add('is-selected', 'hand-text')
