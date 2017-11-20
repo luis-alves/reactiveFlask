@@ -130,7 +130,6 @@ export default class Transactions extends React.Component {
         }
         target.parentElement.classList.add('is-selected')
         let handCheck = target.parentElement.getElementsByClassName('table-header-input')
-        console.log(handCheck);
         handCheck[0].classList.add('hand-text')
         let checkboxOne = target.parentElement.getElementsByClassName('checkbox')
         checkboxOne[0].checked = true
@@ -154,7 +153,10 @@ export default class Transactions extends React.Component {
             this.uncheckAnotherBox()
           }
         }
-        target.classList.add('is-selected', 'hand-text')
+        target.classList.add('is-selected')
+        let handCheck = target.getElementsByClassName('table-header-input')
+        handCheck[0].classList.add('hand-text')
+
         let checkboxOne = target.getElementsByClassName('checkbox')
         checkboxOne[0].checked = true
         checkboxOne[0].classList.add('is-checked')
@@ -166,8 +168,11 @@ export default class Transactions extends React.Component {
           target.checked = false
         }
         else {
-          target.parentElement.parentElement.classList.add('is-selected', 'hand-text')
+          target.parentElement.parentElement.classList.add('is-selected')
           target.classList.add('is-checked')
+          let handCheck = target.parentElement.parentElement.getElementsByClassName('table-header-input')
+          handCheck[0].classList.add('hand-text')
+
         }
       }
       else {
@@ -188,7 +193,10 @@ export default class Transactions extends React.Component {
             this.uncheckAnotherBox()
           }
         }
-        target.parentElement.parentElement.classList.add('is-selected', 'hand-text')
+        target.parentElement.parentElement.classList.add('is-selected')
+        let handCheck = target.parentElement.parentElement.getElementsByClassName('table-header-input')
+        handCheck[0].classList.add('hand-text')
+
         let checkbox = target.parentElement.parentElement.getElementsByClassName('checkbox')
         for (var i = 0; i < checkbox.length; i++) {
           checkbox[i].checked = true
