@@ -107,15 +107,12 @@ export default class Transactions extends React.Component {
       if (target.classList.contains('trigger')) {
         if (this.state.previous != null) {
           if (this.state.previous.classList.contains('trigger')) {
-            if (this.state.previous !== target) {
-              this.state.previous.parentElement.classList.remove('is-selected', 'hand-text')
+              this.state.previous.parentElement.classList.remove('is-selected')
+              let handCheck = this.state.previous.parentElement.getElementsByClassName('table-header-input')
+              handCheck[0].classList.remove('hand-text')
               let previousCheckbox = this.state.previous.parentElement.getElementsByClassName('checkbox')
               previousCheckbox[0].checked = false
             }
-            else {
-              this.state.previous.parentElement.classList.add('hand-text')
-            }
-          }
           else if (this.state.previous.classList.contains('table-header')) {
             this.state.previous.classList.remove('is-selected', 'hand-text')
             this.uncheckPrevious()
@@ -124,7 +121,9 @@ export default class Transactions extends React.Component {
             this.uncheckBox()
           }
           else {
-            this.state.previous.parentElement.parentElement.classList.remove('is-selected', 'hand-text')
+            this.state.previous.parentElement.parentElement.classList.remove('is-selected')
+            let handCheck = this.state.previous.parentElement.parentElement.getElementsByClassName('table-header-input')
+            handCheck[0].classList.remove('hand-text')
             this.uncheckAnotherBox()
           }
         }
@@ -138,18 +137,26 @@ export default class Transactions extends React.Component {
       else if (target.classList.contains('table-header')) {
         if (this.state.previous != null) {
           if (this.state.previous.classList.contains('trigger')) {
-            this.state.previous.parentElement.classList.remove('is-selected', 'hand-text')
+            this.state.previous.parentElement.classList.remove('is-selected')
+            let handCheck = this.state.previous.parentElement.getElementsByClassName('table-header-input')
+            handCheck[0].classList.remove('hand-text')
             this.uncheckSingleParent()
           }
           else if (this.state.previous.classList.contains('table-header')) {
-            this.state.previous.classList.remove('is-selected', 'hand-text')
+            this.state.previous.classList.remove('is-selected')
+            let handCheck = this.state.previous.getElementsByClassName('table-header-input')
+            handCheck[0].classList.remove('hand-text')
             this.uncheckTopParentBox()
           }
           else if (this.state.previous.classList.contains('checkbox')) {
+            let handCheck = this.state.previous.parentElement.parentElement.getElementsByClassName('table-header-input')
+            handCheck[0].classList.remove('hand-text')
             this.uncheckBox()
           }
           else {
-            this.state.previous.parentElement.parentElement.classList.remove('is-selected', 'hand-text')
+            this.state.previous.parentElement.parentElement.classList.remove('is-selected')
+            let handCheck = this.state.previous.parentElement.parentElement.getElementsByClassName('table-header-input')
+            handCheck[0].classList.remove('hand-text')
             this.uncheckAnotherBox()
           }
         }
@@ -163,7 +170,9 @@ export default class Transactions extends React.Component {
       }
       else if (target.classList.contains('checkbox')) {
         if (target.classList.contains('is-checked')) {
-          target.parentElement.parentElement.classList.remove('is-selected', 'hand-text')
+          target.parentElement.parentElement.classList.remove('is-selected')
+          let handCheck = this.state.previous.parentElement.parentElement.getElementsByClassName('table-header-input')
+          handCheck[0].classList.remove('hand-text')
           target.classList.remove('is-checked')
           target.checked = false
         }
@@ -178,18 +187,26 @@ export default class Transactions extends React.Component {
       else {
         if (this.state.previous != null) {
           if (this.state.previous.classList.contains('trigger')) {
-            this.state.previous.parentElement.classList.remove('is-selected', 'hand-text')
+            this.state.previous.parentElement.classList.remove('is-selected')
+            let handCheck = this.state.previous.parentElement.getElementsByClassName('table-header-input')
+            handCheck[0].classList.remove('hand-text')
             this.uncheckSingleParent()
           }
           else if (this.state.previous.classList.contains('table-header')) {
-            this.state.previous.classList.remove('is-selected', 'hand-text')
+            this.state.previous.classList.remove('is-selected')
+            let handCheck = this.state.previous.getElementsByClassName('table-header-input')
+            handCheck[0].classList.remove('hand-text')
             this.uncheckTopParentBox()
           }
           else if (this.state.previous.classList.contains('checkbox')) {
+            let handCheck = this.state.previous.parentElement.parentElement.getElementsByClassName('table-header-input')
+            handCheck[0].classList.remove('hand-text')
             this.uncheckBox()
           }
           else {
-            this.state.previous.parentElement.parentElement.classList.remove('is-selected', 'hand-text')
+            this.state.previous.parentElement.parentElement.classList.remove('is-selected')
+            let handCheck = this.state.previous.parentElement.parentElement.getElementsByClassName('table-header-input')
+            handCheck[0].classList.remove('hand-text')
             this.uncheckAnotherBox()
           }
         }
