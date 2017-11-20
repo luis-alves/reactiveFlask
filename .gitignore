@@ -10,3 +10,4 @@
 /fullstack_template/static/bootstrap
 /fullstack_template/static/dist/
 /node_modules
+/fullstack_template\static\dist\bundle.js

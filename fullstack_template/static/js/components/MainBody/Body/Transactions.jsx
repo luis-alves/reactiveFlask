@@ -7,6 +7,7 @@ import {
 import { fetchTransactions, updateTransactions } from "../../../actions/transactionsActions"
 import ColorModal from "./modal/ColorModal"
 import DataInput from "./inputs/DataInput"
+import FormInput from "./inputs/FormInput"
 
 @connect(store => {
     return {
@@ -97,7 +98,6 @@ export default class Transactions extends React.Component {
       for (var i = checkbox.length-1; i >= 0; i--) {
         checkbox[i].classList.remove('is-checked')
       }
-
     }
 
     handleHandover(event) {
@@ -128,7 +128,10 @@ export default class Transactions extends React.Component {
             this.uncheckAnotherBox()
           }
         }
-        target.parentElement.classList.add('is-selected', 'hand-text')
+        target.parentElement.classList.add('is-selected')
+        let handCheck = target.parentElement.getElementsByClassName('table-header-input')
+        console.log(handCheck);
+        handCheck[0].classList.add('hand-text')
         let checkboxOne = target.parentElement.getElementsByClassName('checkbox')
         checkboxOne[0].checked = true
         checkboxOne[0].classList.add('is-checked')
