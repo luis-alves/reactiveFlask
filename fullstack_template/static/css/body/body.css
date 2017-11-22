@@ -5,15 +5,9 @@
 .bodymain {
   margin-left: 260px;
   width: auto;
+  overflow: auto;
   /*display: flex;*/
   /*overflow-x: visible;*/
-}
-
-.page-header {
-  height: 66px;
-  background-color: black;
-
-
 }
 
 .page-subheader {

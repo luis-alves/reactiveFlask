@@ -10,7 +10,7 @@
   padding: 0;
   width: 260px;
   position: fixed;
-  overflow: auto;
+  /*overflow: auto;*/
   background: linear-gradient(to bottom, #34aebe, #23809b);
   min-width: 260px;
   color: #fff;

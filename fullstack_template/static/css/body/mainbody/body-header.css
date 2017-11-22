@@ -1,6 +1,6 @@
 .table-header {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
     /*background-color: lightpink;*/
@@ -15,7 +15,7 @@
 
 .table-header-input {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
   width: 100%;
@@ -46,21 +46,31 @@
   border-collapse: collapse;
 }
 
+.fixedheader h5 {
+  border-right-style: solid;
+  border-color: rgb(222, 227, 232);
+  border-width: 1px;
+  border-collapse: collapse;
+}
+
 .blank {
-  width: 20px;
+  width: 18px;
 }
 
 .checkboxOne {
     max-width: 12.9px;
+    min-width: 12.891px;
 }
 
-#checkboxOneInput {
-    margin-top: 6px;
-    margin-left: -1px;
+#checkboxOneInput, .checkbox {
+    margin-top: 3px;
+    margin-left: 0px;
 }
 
 .article-row {
+    /*overflow-x: auto;*/
     overflow-y: scroll;
+    /*margin-left: 150px;*/
 }
 
 /* costume scroll bar with 1px width */
@@ -119,34 +129,38 @@
     margin-top: 4px;
 }*/
 
+.checkbox {
+  min-width: 12.891px;
+}
+
 .date {
     min-width: 80.2px;
-    width: 5%;
+    /*width: 5%;*/
 }
 
 .payee {
     min-width: 119px;
-    width: 15%;
+    /*width: 15%;*/
 }
 
 .category {
     min-width: 182.2px;
-    width: 40%;
+    /*width: 40%;*/
 }
 
 .memo {
     min-width: 122.2px;
-    width: 25%
+    /*width: 25%*/
 }
 
 .outflow {
     min-width: 71.2px;
-    width: 10%;
+    /*width: 10%;*/
 }
 
 .inflow {
     min-width: 71.2px;
-    width: 10%;
+    /*width: 10%;*/
 }
 
 /*.reconcile {
@@ -294,4 +308,29 @@
 
 .grey {
   color: #E1E1E1;
+}
+
+input {
+  flex:1;
+  width: 100%;
+  height: 18px;
+}
+
+.table-header-input-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.table-header-input-data > h5 > .date {
+  flex-basis: 30px;
+  flex-grow: 2;
+}
+
+.account-body {
+  min-width: 840px;
+  /*overflow-x: auto;*/
+  /*overflow-x: hidden;*/
 }
