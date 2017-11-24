@@ -2,12 +2,14 @@ import React from "react"
 import {
     connect
 } from "react-redux"
+import 'react-day-picker/lib/style.css';
+import DayPickerInput from "react-day-picker"
 
 
 import { fetchTransactions, updateTransactions } from "../../../actions/transactionsActions"
 import ColorModal from "./modal/ColorModal"
-import DataInput from "./inputs/DataInput"
-import FormInput from "./inputs/FormInput"
+import ResultData from "./inputs/ResultData"
+import InputData from "./inputs/InputData"
 
 @connect(store => {
     return {
@@ -19,7 +21,7 @@ export default class Transactions extends React.Component {
         super(props)
         this.changeColor = this.changeColor.bind(this)
         this.setRow = this.setRow.bind(this)
-        this.state = {previous: null}
+        this.state = {previous: null, edit: false}
         this.handleHandover = this.handleHandover.bind(this)
         // this.handleInput = this.handleInput.bind(this)
         this.uncheckPreviousTableHeader = this.uncheckPreviousTableHeader.bind(this)
@@ -110,10 +112,46 @@ export default class Transactions extends React.Component {
       }
     }
 
-    handleHandover(event) {
+    handleHandover = (event) => {
+
+      event.preventDefault()
       let target = event.target
       this.setState({previous: target})
-      if (target.classList.contains('input-data')) {
+
+      if (target.parentElement.classList.contains('hand-text')) {
+        const data = target.parentElement
+        console.log(data);
+        const date = data.getElementsByClassName('date')[0].innerHTML
+        console.log(date);
+        // data.innerHTML = '<form action="" class="data-form"><input data-date-format="DD-MM-YYYY" type="date" name="date" value="'+date+'" className="date input-data" />\
+        data.innerHTML = '<form action="" class="data-form">'+<DayPickerInput className="date input-data"/>+'\
+        <input type="text" size="10"  name="payee" class="payee input-data" />\
+        <input type="text" name="category" class="category input-data" />\
+        <input type="text" name="memo" class="memo input-data" />\
+        <input type="number" name="outflow" class="outflow input-data" />\
+        <input type="number" name="inflow" class="inflow input-data" /></form>'
+        // const payee = target.parentElement.getElementsByClassName('payee')
+        // const category = target.parentElement.getElementsByClassName('category')
+        // const memo = target.parentElement.getElementsByClassName('memo')
+        // const outflow = target.parentElement.getElementsByClassName('outflow')
+        // const inflow = target.parentElement.getElementsByClassName('inflow')
+
+        // target.parentElement.innerHTML = '<form action="" class="forme"></form>'
+        // const tt = document.getElementsByClassName('forme')
+        // var p = document.createElement("p")
+        // console.log(tt);
+        // tt.append(p)
+        // date[0].innerHTML = '<input type="date" name="date" className="date input-data" />'
+        // payee[0].innerHTML = '<input type="text" size="10"  name="payee" className="payee input-data" />'
+        // category[0].innerHTML = '<input type="text" name="category" className="category input-data" />'
+        // memo[0].innerHTML = '<input type="text" name="memo" className="memo input-data" />'
+        // outflow[0].innerHTML = '<input type="number" name="outflow" className="outflow input-data" />'
+        // inflow[0].innerHTML = '<input type="number" name="inflow" className="inflow input-data" />'
+
+      }
+      else if (target.classList.contains('input-data')) {
+
+
       }
       else {
         if (target.classList.contains('trigger')) {
@@ -222,40 +260,42 @@ export default class Transactions extends React.Component {
     }
 
     render() {
-      if (this.props.transactions != null) {
+      if (this.props.transactions !== null) {
           const rows = this.props.transactions.map((row) =>
               <div className={"table-header handhover"}
                    key={row._id['$oid']}
                    id={row._id['$oid']}
                    onClick={this.handleHandover.bind(event)}
                    >
-                 <div className="checkboxOne row-item trigger">
+                 <div className="checkboxOne body-row-item trigger">
                    <input className=" handhover checkbox" type="checkbox" name="" value="1"/>
                    <label htmlFor="checkboxOneInput"></label>
                  </div>
-                 <div className="boxing-info row-item trigger">
+                 <div className="boxing-info body-row-item trigger">
                    <i className={"icon-info handhover " + row.flag}></i>
                  </div>
-                 <div className="boxing-info row-item trigger" onClick={(e) => this.handleclick(e)}>
+                 <div className="boxing-info body-row-item trigger" onClick={(e) => this.handleclick(e)}>
                    <i className={"icon-bookmark handhover " + row.bookmark}
                       onClick={this.setRow.bind(null, row)}
                       data-_id={row._id['$oid']}>
                    </i>
                  </div>
                  {/* <div className="table-header-input "> */}
-                 <DataInput values={
-                               {
-                                 date:row.date,
-                                 payee: row.payee,
-                                 category: row.category,
-                                 memo: row.memo,
-                                 outflow: row.outflow,
-                                 inflow: row.inflow
-                                }
-                             }
-                             // onClick={this.handleInput.bind(event)}
+                   <ResultData values={
+                     {
+                       date:row.date,
+                       payee: row.payee,
+                       category: row.category,
+                       memo: row.memo,
+                       outflow: row.outflow,
+                       inflow: row.inflow
+                     }
+                   }
+                   // onClick={this.handleInput.bind(event)}
                  />
-                 <div className="boxing-reconcile row-item trigger">
+
+
+                 <div className="boxing-reconcile body-row-item trigger">
                    <i
                      title="Reconcile account"
                      id="filho"
@@ -293,8 +333,7 @@ export default class Transactions extends React.Component {
       }
       return (
           <div>
-
-    </div>
+          </div>
       )
     }
 }

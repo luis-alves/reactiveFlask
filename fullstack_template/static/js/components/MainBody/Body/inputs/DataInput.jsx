@@ -9,18 +9,27 @@ export default class DataInput extends React.Component {
   constructor(props) {
     super(props)
     this.state = {inputData: false}
-    this.handleClick = this.handleClick.bind(this)
+    this.handleInput = this.handleInput.bind(this)
+    // this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick() {
-    event.stopPropagation()
-    this.setState({inputData: true})
+  handleInput(event) {
+    console.log(event.currentTarget);
+    // event.stopPropagation()
+    if (event.target.classList.contains('hand-text')) {
+      console.log('dsg');
+      this.setState({inputData: true})
+    }
+    else {
+      console.log(this.props);
+      // this.props.handleClick()
+    }
   }
 
   render() {
     if (this.state.inputData) {
       return (
-        <div className="table-header-input-data" onClick={this.handleClick}>
+        <div className="table-header-input-data" onClick={this.handleInput.bind(this)}>
           <h5 className="date row-item input-data" ><input type="date" name="date" className="date input-data" /></h5>
           <h5 className="payee row-item input-data" ><input type="text" size="10"  name="payee" className="payee input-data" /></h5>
           <h5 className="category row-item input-data" ><input type="text" name="category" className="category input-data" /></h5>
@@ -31,7 +40,7 @@ export default class DataInput extends React.Component {
       )
     } else {
       return (
-        <div className="table-header-input " onClick={this.handleClick.bind(event)}>
+        <div className="table-header-input " onClick={this.handleInput.bind(event)}>
           <h5 className='date row-item input-data' >{this.props.values.date}</h5>
           <h5 className='payee row-item input-data' >{this.props.values.payee}</h5>
           <h5 className='category row-item input-data' >{this.props.values.category}</h5>
