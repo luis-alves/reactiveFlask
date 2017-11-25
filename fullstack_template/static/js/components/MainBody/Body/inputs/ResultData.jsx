@@ -4,12 +4,12 @@ import React from "react"
 
 const ResultData = props =>
   <div className="table-header-input ">
-    <h5 className='date body-row-item' >{props.values.date}</h5>
-    <h5 className='payee body-row-item' >{props.values.payee}</h5>
-    <h5 className='category body-row-item' >{props.values.category}</h5>
-    <h5 className='memo body-row-item' >{props.values.memo}</h5>
-    <h5 className='outflow body-row-item'>{props.values.outflow}</h5>
-    <h5 className='inflow body-row-item' >{props.values.inflow}</h5>
+    <h5 className='date body-row-item' >{props.row.date}</h5>
+    <h5 className='payee body-row-item' >{props.row.payee}</h5>
+    <h5 className='category body-row-item' >{props.row.category}</h5>
+    <h5 className='memo body-row-item' >{props.row.memo}</h5>
+    <h5 className='outflow body-row-item'>{props.row.outflow}</h5>
+    <h5 className='inflow body-row-item' >{props.row.inflow}</h5>
   </div>
 
 export default ResultData
