@@ -22,16 +22,3 @@ class Header extends React.Component {
 }
 
 export default Header
-{/* <div className="page-header">
-  <div className="account-name-container">
-    <ClearedBalance />
-    <div className="balance-separator">
-      +
-    </div>
-    <UnclearedBalance />
-    <div className="balance-separator">
-      =
-    </div>
-      <WorkingBalance />
-  </div>
-</div> */}

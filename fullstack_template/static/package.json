@@ -47,6 +47,7 @@
     "prop-types": "^15.6.0",
     "react-datepicker": "^0.61.0",
     "react-day-picker": "^6.2.1",
+    "react-loading": "^1.0.2",
     "react-modal": "^3.1.0",
     "react-redux": "^5.0.6",
     "react-spinkit": "^3.0.0",

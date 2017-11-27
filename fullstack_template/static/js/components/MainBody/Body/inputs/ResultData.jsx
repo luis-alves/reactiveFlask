@@ -3,7 +3,8 @@ import React from "react"
 // import 'react-day-picker/lib/style.css';
 
 const ResultData = props =>
-  <div className="table-header-input ">
+// console.log(props.row);
+  <div className="table-header-input " onClick={props.onclick}>
     <h5 className='date body-row-item' >{props.row.date}</h5>
     <h5 className='payee body-row-item' >{props.row.payee}</h5>
     <h5 className='category body-row-item' >{props.row.category}</h5>
