@@ -349,7 +349,7 @@ button {
     margin-left: 0px;
 }
 
-.article-row {
+.all-entries {
     /*overflow-x: auto;*/
     overflow-y: scroll;
     /*margin-left: 150px;*/
@@ -600,6 +600,13 @@ input {
   height: 18px;
 }
 
+.table-header-input-data > form > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
 .table-header-input-data {
   display: flex;
   justify-content: center;
@@ -626,7 +633,7 @@ input {
 .bodymain {
   margin-left: 260px;
   width: auto;
-  overflow: auto;
+  /*overflow: auto;*/
   /*display: flex;*/
   /*overflow-x: visible;*/
 }

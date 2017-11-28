@@ -5,7 +5,7 @@
 .bodymain {
   margin-left: 260px;
   width: auto;
-  overflow: auto;
+  /*overflow: auto;*/
   /*display: flex;*/
   /*overflow-x: visible;*/
 }

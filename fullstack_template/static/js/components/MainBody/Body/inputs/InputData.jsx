@@ -27,6 +27,7 @@ export default class InputData extends React.Component {
     return (
       <div className="table-header-input-data">
         <form onSubmit={this.handleSubmit}>
+          <div>
           <Datepicker
             className="date row-item input-data"
             selected={this.state.startDate}
@@ -37,6 +38,21 @@ export default class InputData extends React.Component {
           <h5 className="memo row-item input-data" ><input type="text" name="memo" className="memo input-data" /></h5>
           <h5 className="outflow row-item input-data"><input type="number" name="outflow" className="outflow input-data" /></h5>
           <h5 className="inflow row-item input-data" ><input type="number" name="inflow" className="inflow input-data" /></h5>
+        </div>
+        <div className="table-header handhover">
+          <div className="checkboxOne body-row-item trigger">
+          </div>
+          <div className="boxing-info body-row-item trigger">
+          </div>
+          <div className="boxing-info body-row-item trigger">
+          </div>
+          <div className="boxing-reconcile body-row-item trigger">
+          </div>
+          <button type="submit">Submit</button>
+          <div>
+          </div>
+        </div>
+
         </form>
       </div>
     )
