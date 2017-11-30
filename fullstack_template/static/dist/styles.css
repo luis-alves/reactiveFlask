@@ -259,54 +259,50 @@ button {
   color: #FF7B00;
 }
 .table-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    /*background-color: lightpink;*/
-    height: 24px;
-    margin-top: 0px;
-    border-color: rgb(222, 227, 232);
-    border-style: solid;
-    border-width: 1px;
-    border-collapse: collapse;
-    border-right-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  /*min-width: 1000px;*/
 }
 
-.table-header-input {
+.table-header-input-data {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 96%;
+}
+
+.table-header-input-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
   width: 100%;
 }
+.table-header-input-field > div >* {
 
-.table-header-input > form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
 }
 
-.head-row-item {
-    color: rgb(76, 112, 121);
-    padding: 0px 5px;
-    width: 100%;
-    height: 24px;
-    font-size: 11px;
-    /*margin: 0;*/
-    text-align: center;
-    font-weight: 400;
+.head-row-item, .head-row-item-input {
+  color: rgb(76, 112, 121);
+  padding: 0px 5px;
+  /*width: 100%;*/
+  height: 24px;
+  font-size: 11px;
+  /*margin: 0;*/
+  text-align: center;
+  font-weight: 400;
 
-    margin: 0 0;
-    line-height: 24px;
+  margin: 0 0;
+  line-height: 24px;
 }
 
 .body-row-item {
     color: rgb(76, 112, 121);
     padding: 0px 6px 0px 5px;
-    width: 100%;
+
     height: 24px;
     font-size: 11px;
     /*margin: 0;*/
@@ -321,7 +317,7 @@ button {
   width: 90vw;
 }*/
 
-.fixedheader > *{
+.head-row-item {
   border-right-style: solid;
   border-color: rgb(222, 227, 232);
   border-width: 1px;
@@ -336,13 +332,9 @@ button {
 }
 
 .blank {
-  width: 18px;
+  width: 17px;
 }
 
-.checkboxOne {
-    max-width: 12.9px;
-    min-width: 12.891px;
-}
 
 #checkboxOneInput, .checkbox {
     margin-top: 3px;
@@ -411,46 +403,80 @@ button {
     margin-top: 4px;
 }*/
 
-.checkbox {
-  min-width: 12.891px;
+.checkboxOne {
+    min-width: 12.891px;
+    width: 1%;
 }
 
+
 .date {
-    min-width: 80.2px;
-    /*width: 5%;*/
+    /*min-width: 80.2px;
+    width: 1em;*/
+  width: 10%;
+}
+
+.date-input {
+    /*min-width: 80.2px;
+    width: 1em;*/
+  width: 100%;
+}
+
+.table-header-input-data:first-child {
+  width: 10%;
+}
+
+.react-datepicker-wrapper {
+    /*min-width: 80.2px;
+    width: 1em;*/
+  /*width: 50%;*/
+}
+
+.table-header-input-data > div {
+    /*min-width: 80.2px;
+    width: 1em;*/
+  width: 10%;
 }
 
 .payee {
-    min-width: 119px;
-    /*width: 15%;*/
+    /*min-width: 119px;
+    width: 3em;*/
+    width: 22%;
+}
+
+.payee-input {
+    /*min-width: 119px;
+    width: 3em;*/
+    width: 22%;
+    margin-left: 7px;
 }
 
 .category {
-    min-width: 182.2px;
-    /*width: 40%;*/
+    /*min-width: 182.2px;*/
+    /*width: 100%;*/
+    width: 24%;
 }
 
 .memo {
-    min-width: 122.2px;
-    /*width: 25%*/
+    /*min-width: 122.2px;*/
+    width: 24%
+
 }
 
 .outflow {
-    min-width: 71.2px;
-    /*width: 10%;*/
+    width: 10%;
 }
 
 .inflow {
-    min-width: 71.2px;
-    /*width: 10%;*/
+    width: 10%;
 }
 
-/*.reconcile {
-    min-width: 28.2px;
-    max-width: 28.2px;
-}*/
+.reconcile {
+    /*min-width: 28.2px;*/
+    width: 0.5%;
+}
 
 .icon-info, .icon-bookmark, .icon-check {
+  /*min-width: 120px;*/
     margin-top: 20px;
     font-size: 14px;
     /*color: lightgrey;*/
@@ -461,13 +487,13 @@ button {
 }
 
 .boxing-info {
-    width: 14.5px;
+    width: 1%;
     /*margin-right: 1px;
     padding-right: 1px;*/
 }
 
 .boxing-reconcile {
-    width: 28px;
+    width: 1%;
 }
 
 .unchecked {
@@ -595,30 +621,18 @@ button {
 }
 
 input {
-  flex:1;
-  width: 100%;
   height: 18px;
+  width: 100%;
+  padding: 0 2px;
 }
 
-.table-header-input-data > form > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
-}
-.table-header-input-data {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
-}
 
-.table-header-input-data > h5 > .date {
+
+
+/*.table-header-input-field > h5 > .date {
   flex-basis: 30px;
   flex-grow: 2;
-}
+}*/
 
 .account-body {
   min-width: 840px;
@@ -629,6 +643,16 @@ input {
 .spining {
   margin: 100px auto;
 
+}
+
+.form-button {
+  display: inline-block;
+  margin: 3px 2px;
+  border-radius: 5px;
+}
+
+.button-group {
+  margin-left: 85%;
 }
 .bodymain {
   margin-left: 260px;

@@ -18,31 +18,31 @@ export default class ColorModal extends React.Component {
   }
 
   render () {
-    if (this.props.rowId != null) {
+    if (this.props.targetId != null) {
       return (
         <div className="modal-content-color">
           <div className="modal-content-color-red handhover"
-               onClick={this.changeBokkmarkColor.bind(this, 'red', this.props.rowId)}>
+               onClick={this.changeBokkmarkColor.bind(this, 'red', this.props.targetId)}>
             <h3 className="modal-content-color-name">Red</h3>
           </div>
           <div className="modal-content-color-orange handhover"
-               onClick={this.changeBokkmarkColor.bind(this,'orange', this.props.rowId)}>
+               onClick={this.changeBokkmarkColor.bind(this,'orange', this.props.targetId)}>
             <h3 className="modal-content-color-name">Orange</h3>
           </div>
           <div className="modal-content-color-yellow handhover"
-               onClick={this.changeBokkmarkColor.bind(this, 'yellow', this.props.rowId)}>
+               onClick={this.changeBokkmarkColor.bind(this, 'yellow', this.props.targetId)}>
             <h3 className="modal-content-color-name">Yellow</h3>
           </div>
           <div className="modal-content-color-green handhover"
-               onClick={this.changeBokkmarkColor.bind(this, 'green', this.props.rowId)}>
+               onClick={this.changeBokkmarkColor.bind(this, 'green', this.props.targetId)}>
             <h3 className="modal-content-color-name">Green</h3>
           </div>
           <div className="modal-content-color-blue handhover"
-               onClick={this.changeBokkmarkColor.bind(this, 'blue', this.props.rowId)}>
+               onClick={this.changeBokkmarkColor.bind(this, 'blue', this.props.targetId)}>
             <h3 className="modal-content-color-name">Blue</h3>
           </div>
           <div className="modal-content-color-purple handhover"
-               onClick={this.changeBokkmarkColor.bind(this, 'purple', this.props.rowId)}>
+               onClick={this.changeBokkmarkColor.bind(this, 'purple', this.props.targetId)}>
             <h3 className="modal-content-color-name">Purple</h3>
           </div>
         </div>

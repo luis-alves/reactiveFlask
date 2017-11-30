@@ -13,10 +13,16 @@ export default class Row extends React.Component {
 
   render() {
     const {row, isSelected, rowId} = this.props
+    console.log(row.memo);
     const componentToHiglight = isSelected ? (
       <InputData row={row} />
     ) : (
-      <ResultData row={row} rowId={rowId} onclick={this.onClick} />
+      <ResultData
+        row={row}
+        rowId={rowId}
+        onclick={this.onClick}
+        changeColor={this.props.changeColor}
+      />
     )
 
     return componentToHiglight

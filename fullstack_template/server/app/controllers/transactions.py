@@ -68,3 +68,37 @@ def bookmark():
 
     return dumps({'bookmark': bookmark['bookmark'],
                   'id': data['id']})
+
+
+@app.route('/input', methods=['POST'])
+def input():
+    client = MongoClient("mongodb://localhost")
+    db = client.reactingflask
+    entries = db.entries
+
+    data = request.get_json()
+
+    # row = entries.find_one({"_id": ObjectId(data['id'])})
+
+    try:
+        entries.find_one_and_update(
+            {"_id": ObjectId(data['id'])},
+            {"$set": {
+                "category": data['category'],
+                "payee": data['payee'],
+                "memo": data['memo'],
+                "date": data['date'],
+                "outflow": data['outflow'],
+                "inflow": data['inflow'],
+                }}
+        )
+    except Exception as e:
+        print "Unexpected error: ", type(e), e
+
+
+    row = entries.find_one({"_id": ObjectId(data['id'])})
+    print row
+    return dumps({
+                  'bookmark': row,
+                  'id': data['id']
+                  })
