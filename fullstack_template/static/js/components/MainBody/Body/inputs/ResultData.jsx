@@ -7,27 +7,24 @@ export default class ResultData extends React.Component {
     super(props)
     this.state = {row: null, visibility: false}
     this.changeColorBookmark = this.changeColorBookmark.bind(this)
-    // this.handlePointer = this.handlePointer.bind(this)
   }
 
   changeColorBookmark (row, event) {
+    this.setState({pointerY: event.target.offsetTop-25})
     this.setState({
       row: event.currentTarget.dataset._id,
       visibility: !this.state.visibility
     })
+    event.stopPropagation()
   }
 
-  handlePointer = (e) => {
-    e.stopPropagation()
-    this.setState({pointerY: e.target.offsetTop-25})
-  }
 
   render() {
     return (
       <div className="table-header handhover"
            key={this.props.row._id['$oid']}
            id={this.props.row._id['$oid']}
-           onClick={this.props.onclick}
+
            >
         <div className="checkboxOne body-row-item trigger">
          <input className=" handhover checkbox" type="checkbox" name="" value="1"/>
@@ -38,7 +35,6 @@ export default class ResultData extends React.Component {
         </div>
         <div
           className="boxing-info body-row-item trigger"
-          onClick={e => this.handlePointer(e)}
           >
           <i className={"icon-bookmark handhover " + this.props.row.bookmark}
               onClick={this.changeColorBookmark.bind(null, this.props.row)}
@@ -46,6 +42,7 @@ export default class ResultData extends React.Component {
           </i>
         </div>
         <div className="table-header-input-field "
+          onClick={this.props.onclick}
           // onClick={this.props.onclick}
           >
           <h5 className='date body-row-item' >{this.props.row.date}</h5>
