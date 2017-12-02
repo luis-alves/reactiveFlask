@@ -32,11 +32,11 @@ export default function reducer(state={
         )
       }
     // Inputed data from field elements
-    case "INPUT_TRANSACTIONS_FETCHING":
+    case "INPUT_TRANSACTION_FETCHING":
       return {...state, fetching: true}
-    case "INPUT_TRANSACTIONS_REJECTED":
+    case "INPUT_TRANSACTION_REJECTED":
       return {...state, fetching: false, error: action.payload}
-    case "INPUT_TRANSACTIONS_FULFILLED":
+    case "INPUT_TRANSACTION_FULFILLED":
       return {
         ...state,
         fetching: false,
@@ -47,7 +47,7 @@ export default function reducer(state={
             payee: action.payload.payee,
             category: action.payload.category,
             memo: action.payload.memo,
-            date: action.payload.date, 
+            date: action.payload.date,
             category: action.payload.category,
             outflow: action.payload.outflow,
             inflow: action.payload.inflow

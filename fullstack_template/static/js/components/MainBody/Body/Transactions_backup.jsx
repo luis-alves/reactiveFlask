@@ -20,7 +20,7 @@ export default class Transactions extends React.Component {
     constructor(props) {
         super(props)
         this.changeColor = this.changeColor.bind(this)
-        this.setRow = this.setRow.bind(this)
+        this.changeColorBookmark = this.changeColorBookmark.bind(this)
         this.state = {previous: null, edit: false}
         this.handleHandover = this.handleHandover.bind(this)
         // this.handleInput = this.handleInput.bind(this)
@@ -40,7 +40,7 @@ export default class Transactions extends React.Component {
       this.props.dispatch(updateTransactions(e))
     }
 
-    setRow (row, event) {
+    changeColorBookmark (row, event) {
       this.setState({row: event.currentTarget.dataset._id})
       var temp = this.refs.overlay;
 	    temp.style.visibility = (temp.style.visibility == "visible") ? "hidden" : "visible";
@@ -276,7 +276,7 @@ export default class Transactions extends React.Component {
                  </div>
                  <div className="boxing-info body-row-item trigger" onClick={(e) => this.handleclick(e)}>
                    <i className={"icon-bookmark handhover " + row.bookmark}
-                      onClick={this.setRow.bind(null, row)}
+                      onClick={this.changeColorBookmark.bind(null, row)}
                       data-_id={row._id['$oid']}>
                    </i>
                  </div>
@@ -307,7 +307,7 @@ export default class Transactions extends React.Component {
           )
           return (
               <div>
-                <div id="overlay" ref="overlay" onClick={this.setRow.bind(null)}>
+                <div id="overlay" ref="overlay" onClick={this.changeColorBookmark.bind(null)}>
                   <div>
                     <ColorModal rowId={this.state.row}/>
                   </div>

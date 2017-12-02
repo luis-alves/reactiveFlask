@@ -82,32 +82,29 @@ export function updateTransactionsBookmark(color, id) {
 }
 
 /* Update database with the data from input fields */
-export function updateTransactionsInputData(data) {
-  console.log(data.memo);
-  return function (dispatch) {
-    dispatch({type: "INPUT_TRANSACTIONS_FETCHING"})
+export function updateTransactionsInputData(data, date) {
 
+  return function (dispatch) {
+    dispatch({type: "INPUT_TRANSACTION_FETCHING"})
     axios.post(window.location.href + 'input', {
       payee: data.payee,
-      date: data.startDate._i,
+      date: date,
       category: data.category,
       memo: data.memo,
       outflow: data.outflow,
       inflow: data.inflow,
       id: data.id
-      // elementsId: e.target.parentElement.parentElement.id,
-      // elementsId: e.target.parentElement.parentElement.id,
     }
     ).then(response => {
-      console.log('response ' + response);
+      // console.log(response);
       dispatch({
-        type: "INPUT_TRANSACTIONS_FULFILLED",
+        type: "INPUT_TRANSACTION_FULFILLED",
         payload: response.data,
         id: response.data.id})
     })
     .catch(err => {
       dispatch({
-        type: "INPUT_TRANSACTIONS_REJECTED",
+        type: "INPUT_TRANSACTION_REJECTED",
         payload: err})
     })
     // Fetch updated transactions

@@ -654,6 +654,24 @@ input {
 .button-group {
   margin-left: 85%;
 }
+
+.form-transaction {
+  background-color: #00596F;
+  color: white;
+  padding: 2px 0;
+}
+
+.form-transaction input {
+  border-color: #278CA4;
+  border-collapse: collapse;
+}
+
+.form-transaction button {
+  color: white;
+  background-color: #278CA4;
+  height: 30px;
+  margin: 5PX 0;
+}
 .bodymain {
   margin-left: 260px;
   width: auto;

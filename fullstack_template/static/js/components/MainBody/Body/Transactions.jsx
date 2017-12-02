@@ -23,9 +23,10 @@ export default class Transactions extends React.Component {
         super(props)
         this.props.dispatch(fetchTransactions())
         this.changeColor = this.changeColor.bind(this)
-        // this.setRow = this.setRow.bind(this)
+        // this.changeColorBookmark = this.changeColorBookmark.bind(this)
         this.state = {rows: {}, pointerY: null, row: null}
         this.handleSelect = this.handleSelect.bind(this)
+        this.handleUnselect = this.handleUnselect.bind(this)
         // this.handleInput = this.handleInput.bind(this)
     }
 
@@ -44,6 +45,12 @@ export default class Transactions extends React.Component {
       })
     }
 
+    handleUnselect = (rowId) => {
+      this.setState({
+        rows: {[rowId]:false}
+      })
+    }
+
     render() {
       if (this.props.transactions !== null) {
         const {rows} = this.state
@@ -52,10 +59,11 @@ export default class Transactions extends React.Component {
             key={index}
             row={row}
             handleSelect={this.handleSelect}
+            handleUnselect={this.handleUnselect}
             rowId={index}
             isSelected={rows[index]}
             // handleclick={this.handleclick}
-            setRow={this.setRow}
+            changeColorBookmark={this.changeColorBookmark}
             changeColor={this.changeColor}
           />
       )

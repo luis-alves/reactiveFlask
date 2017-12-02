@@ -3,6 +3,7 @@ from app import app
 from pymongo import MongoClient
 from bson.json_util import dumps
 from bson.objectid import ObjectId
+import datetime
 
 
 @app.route('/transactions')
@@ -12,6 +13,12 @@ def transactions():
     entries = db.entries
 
     all_lines = list(entries.find())
+
+    for date in all_lines:
+        # print date['date']
+        # print 'new'
+        new_date = date['date'].strftime('%d-%m-%Y')
+        date['date'] = new_date
 
     return dumps(all_lines)
 
@@ -78,7 +85,7 @@ def input():
 
     data = request.get_json()
 
-    # row = entries.find_one({"_id": ObjectId(data['id'])})
+    date = datetime.datetime.strptime(data['date'], "%d-%m-%Y")
 
     try:
         entries.find_one_and_update(
@@ -87,7 +94,7 @@ def input():
                 "category": data['category'],
                 "payee": data['payee'],
                 "memo": data['memo'],
-                "date": data['date'],
+                "date": date,
                 "outflow": data['outflow'],
                 "inflow": data['inflow'],
                 }}
@@ -95,10 +102,9 @@ def input():
     except Exception as e:
         print "Unexpected error: ", type(e), e
 
-
     row = entries.find_one({"_id": ObjectId(data['id'])})
-    print row
+
     return dumps({
-                  'bookmark': row,
+                  'row': row,
                   'id': data['id']
                   })

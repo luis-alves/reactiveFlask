@@ -5,25 +5,25 @@ import ColorModal from "../modal/ColorModal"
 export default class ResultData extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {row: null}
-    this.setRow = this.setRow.bind(this)
-    this.handleclick = this.handleclick.bind(this)
+    this.state = {row: null, visibility: false}
+    this.changeColorBookmark = this.changeColorBookmark.bind(this)
+    // this.handlePointer = this.handlePointer.bind(this)
   }
 
-  setRow (row, event) {
-    this.setState({row: event.currentTarget.dataset._id})
-    var temp = this.refs.overlay;
-    temp.style.visibility = (temp.style.visibility == "visible") ? "hidden" : "visible";
+  changeColorBookmark (row, event) {
+    this.setState({
+      row: event.currentTarget.dataset._id,
+      visibility: !this.state.visibility
+    })
   }
 
-  handleclick = (e) => {
+  handlePointer = (e) => {
     e.stopPropagation()
     this.setState({pointerY: e.target.offsetTop-25})
   }
 
   render() {
     return (
-
       <div className="table-header handhover"
            key={this.props.row._id['$oid']}
            id={this.props.row._id['$oid']}
@@ -38,12 +38,12 @@ export default class ResultData extends React.Component {
         </div>
         <div
           className="boxing-info body-row-item trigger"
-          onClick={(e) => this.handleclick(e)}
+          onClick={e => this.handlePointer(e)}
           >
-         <i className={"icon-bookmark handhover " + this.props.row.bookmark}
-            onClick={this.setRow.bind(null, this.props.row)}
-            data-_id={this.props.row._id['$oid']}>
-         </i>
+          <i className={"icon-bookmark handhover " + this.props.row.bookmark}
+              onClick={this.changeColorBookmark.bind(null, this.props.row)}
+              data-_id={this.props.row._id['$oid']}>
+          </i>
         </div>
         <div className="table-header-input-field "
           // onClick={this.props.onclick}
@@ -63,16 +63,19 @@ export default class ResultData extends React.Component {
             onClick={this.props.changeColor}
             ></i>
         </div>
-        <div id="overlay" ref="overlay"
-          onClick={this.setRow.bind(null)}
-          >
-          <div>
-            <ColorModal targetId={this.state.row}/>
+        {this.state.visibility ? (
+          <div
+            id="overlay"
+            ref="overlay"
+            onClick={this.changeColorBookmark.bind(null)}
+            >
+            <div>
+              <ColorModal targetId={this.state.row}/>
+            </div>
           </div>
-        </div>
+        ) : null}
         <style>{`
           #overlay {
-            visibility: hidden;
             position: absolute;
             left: 0px;
             top: 0px;

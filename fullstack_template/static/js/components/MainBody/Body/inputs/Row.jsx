@@ -11,11 +11,19 @@ export default class Row extends React.Component {
     handleSelect(rowId)
   }
 
+  onclicking = () => {
+    const {handleUnselect, rowId} = this.props
+    handleUnselect(rowId)
+  }
+
+
   render() {
     const {row, isSelected, rowId} = this.props
-    console.log(row.memo);
     const componentToHiglight = isSelected ? (
-      <InputData row={row} />
+      <InputData
+        row={row}
+        onclicking={this.onclicking}
+        rowId={rowId} />
     ) : (
       <ResultData
         row={row}

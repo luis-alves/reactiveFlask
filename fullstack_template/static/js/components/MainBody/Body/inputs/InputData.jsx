@@ -20,7 +20,8 @@ var moment = require('moment')
 export default class InputData extends React.Component {
   constructor(props) {
     super(props)
-    console.log(this.props.row.memo);
+    // console.log(this.props.row.date);
+    // console.log(moment(this.props.row.date, "DD/MM/YYYY"));
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handlePayee = this.handlePayee.bind(this)
@@ -49,6 +50,7 @@ export default class InputData extends React.Component {
     this.setState({payee: e.target.value})
   }
 
+
   handleCategory(e) {
     this.setState({category: e.target.value})
   }
@@ -66,13 +68,20 @@ export default class InputData extends React.Component {
   }
 
   handleSubmit (e) {
+    const date = moment(this.state.startDate, "YYYY-MM.DD").format('DD-MM-YYYY')
     e.preventDefault()
-    this.props.dispatch(updateTransactionsInputData(this.state))
+    this.props.dispatch(updateTransactionsInputData(this.state, date))
+    this.props.onclicking()
+  }
+
+  handleCancelation = (e) => {
+    e.preventDefault()
+    this.props.onclicking()
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} method="post">
+      <form onSubmit={this.handleSubmit} method="post" className="form-transaction">
         <div className="table-header handhover"
              key={this.props.row._id['$oid']}
              id={this.props.row._id['$oid']}
@@ -86,7 +95,7 @@ export default class InputData extends React.Component {
           </div>
           <div className="boxing-info body-row-item trigger">
             <i className={"icon-bookmark handhover " + this.props.row.bookmark}
-               // onClick={this.setRow.bind(null, this.props.row)}
+               // onClick={this.changeColorBookmark.bind(null, this.props.row)}
                data-_id={this.props.row._id['$oid']}>
             </i>
           </div>
@@ -95,6 +104,11 @@ export default class InputData extends React.Component {
               className="date-input row-item input-data"
               selected={this.state.startDate}
               onChange={this.handleChange}
+              dateFormat="DD/MM/YYYY"
+              /* Other properties */
+              // locale="en-gb"
+              // placeholderText="Weeks start on Monday"
+              // todayButton={"Today"}
             />
             <input type="text"  className="payee-input input-data" defaultValue={this.state.payee} onChange={this.handlePayee} />
             <input type="text" name="category" className="category input-data" defaultValue={this.state.category} onChange={this.handleCategory} />
@@ -127,8 +141,8 @@ export default class InputData extends React.Component {
             <h5 className="payee row-item input-data" ></h5>
             <h5 className="category row-item input-data" ></h5>
             <h5 className="memo row-item input-data" ></h5>
-            <button className="form-button outflow row-item input-data" type="submit">Submit</button>
-            <button className="form-button inflow row-item input-data" type="cancel">Cancel</button>
+            <button className="form-button outflow row-item input-data" type="submit" >Submit</button>
+            <button className="form-button inflow row-item input-data" type="cancel" onClick={this.handleCancelation}>Cancel</button>
           </div>
           <div className="boxing-reconcile body-row-item trigger">
 
