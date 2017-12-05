@@ -108,3 +108,30 @@ def input():
                   'row': row,
                   'id': data['id']
                   })
+
+
+@app.route('/checkbox', methods=['POST'])
+def checkbox():
+    client = MongoClient("mongodb://localhost")
+    db = client.reactingflask
+    entries = db.entries
+
+    data = request.get_json()
+
+    checkbox = entries.find_one({"_id": ObjectId(data['id'])})
+
+    if bookmark['bookmark'] != data['color']:
+        entries.find_one_and_update(
+            {"_id": ObjectId(data['id'])},
+            {"$set": {"bookmark": data['color']}},
+        )
+    else:
+        entries.find_one_and_update(
+            {"_id": ObjectId(data['id'])},
+            {"$set": {"bookmark": 'grey'}},
+        )
+
+    bookmark = entries.find_one({"_id": ObjectId(data['id'])})
+
+    return dumps({'bookmark': bookmark['bookmark'],
+                  'id': data['id']})

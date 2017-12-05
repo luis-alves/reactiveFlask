@@ -77,3 +77,12 @@
 .icon-reconcile:before {
   content: "\63";
 }
+.icon-edit-modify-streamline:before {
+  content: "\62";
+}
+.icon-unchecked:before {
+  content: "\65";
+}
+.icon-checked:before {
+  content: "\66";
+}

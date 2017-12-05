@@ -215,7 +215,7 @@
     width: 0.5%;
 }
 
-.icon-info, .icon-bookmark, .icon-check {
+.icon-info, .icon-bookmark, .icon-checked, .icon-unchecked {
   /*min-width: 120px;*/
     margin-top: 20px;
     font-size: 14px;

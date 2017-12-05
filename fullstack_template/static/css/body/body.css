@@ -3,7 +3,7 @@
 @import url('./mainbody/body-header.css');
 
 .bodymain {
-  margin-left: 260px;
+  margin-left: 0px;
   width: auto;
   /*overflow: auto;*/
   /*display: flex;*/

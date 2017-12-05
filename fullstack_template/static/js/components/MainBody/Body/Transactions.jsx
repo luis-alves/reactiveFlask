@@ -1,45 +1,34 @@
 import React from "react"
-import {
-    connect
-} from "react-redux"
+import { connect } from "react-redux"
 import ReactLoading from 'react-loading'
 
 // Actions
 import { fetchTransactions, updateTransactions } from "../../../actions/transactionsActions"
 
-// Component
+// Internal Component
 import ColorModal from "./modal/ColorModal"
 import ResultData from "./inputs/ResultData"
 import InputData from "./inputs/InputData"
 import Row from "./inputs/Row"
 
 @connect(store => {
-    return {
-        transactions: store.transactions.transactions
-    }
+    return { transactions: store.transactions.transactions }
 })
 export default class Transactions extends React.Component {
     constructor(props) {
         super(props)
         this.props.dispatch(fetchTransactions())
-        this.changeColor = this.changeColor.bind(this)
-        // this.changeColorBookmark = this.changeColorBookmark.bind(this)
         this.state = {rows: {}, pointerY: null, row: null}
-        this.handleSelect = this.handleSelect.bind(this)
-        this.handleUnselect = this.handleUnselect.bind(this)
-        // this.handleInput = this.handleInput.bind(this)
     }
 
-    changeColor(e) {
+    changeColor = (e) => {
       e.stopPropagation()
       this.props.dispatch(updateTransactions(e))
     }
 
     handleSelect = (rowId) => {
-      // const {rows} = this.state
       this.setState({
         rows:{
-          // ...rows,
           [rowId]:true
         }
       })
@@ -51,6 +40,11 @@ export default class Transactions extends React.Component {
       })
     }
 
+    handleCheck = (id) => {
+      console.log('dfsds ' +id);
+      this.props.dispatch(updateTransactionsCheckbox(id))
+    }
+
     render() {
       if (this.props.transactions !== null) {
         const {rows} = this.state
@@ -60,6 +54,7 @@ export default class Transactions extends React.Component {
             row={row}
             handleSelect={this.handleSelect}
             handleUnselect={this.handleUnselect}
+            handleCheck={this.handleCheck}
             rowId={index}
             isSelected={rows[index]}
             // handleclick={this.handleclick}

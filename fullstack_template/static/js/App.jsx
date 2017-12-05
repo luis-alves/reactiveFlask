@@ -10,7 +10,7 @@ export default class App extends React.Component {
     return (
       <Router>
         <div>
-          <Navigator />
+          {/* <Navigator /> */}
           <Main />
         </div>
       </Router>

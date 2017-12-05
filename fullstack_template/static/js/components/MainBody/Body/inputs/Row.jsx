@@ -1,5 +1,6 @@
 import React from "react"
 
+// Internal Components
 import ResultData from "./ResultData"
 import InputData from "./InputData"
 
@@ -16,7 +17,6 @@ export default class Row extends React.Component {
     handleUnselect(rowId)
   }
 
-
   render() {
     const {row, isSelected, rowId} = this.props
     const componentToHiglight = isSelected ? (
@@ -30,13 +30,10 @@ export default class Row extends React.Component {
         rowId={rowId}
         onclick={this.onClick}
         changeColor={this.props.changeColor}
+        handlecheck={this.props.handleCheck}
       />
     )
 
     return componentToHiglight
   }
-
-
-
-
 }

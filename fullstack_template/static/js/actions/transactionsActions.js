@@ -119,3 +119,35 @@ export function updateTransactionsInputData(data, date) {
     })
   }
 }
+
+/* Update database for the checkboxes */
+export function updateTransactionsCHeckbox(id) {
+  return function (dispatch) {
+    dispatch({type: "UPDATE_TRANSACTIONS_FETCHING"})
+
+    axios.post(window.location.href + 'checkbox', {
+      id: id
+    }
+    ).then(response => {
+      dispatch({
+        type: "UPDATE_TRANSACTIONS_FULFILLED",
+        payload: response.data.checkbox,
+        id: response.data.id})
+    })
+    .catch(err => {
+      dispatch({
+        type: "UPDATE_TRANSACTIONS_REJECTED",
+        payload: err})
+    })
+    // Fetch updated transactions
+    dispatch({type: "FETCH_TRANSACTIONS_FETCHING"})
+
+    axios.get(window.location.href + 'transactions')
+    .then(response => {
+      dispatch({type: "FETCH_TRANSACTIONS_FULFILLED", payload: response.data})
+    })
+    .catch(err => {
+      dispatch({type: "FETCH_TRANSACTIONS_REJECTED", payload: err})
+    })
+  }
+}
