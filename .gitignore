@@ -5,9 +5,12 @@
 /fullstack_template/server/Scripts
 /fullstack_template/server/tcl
 *.pyc
+*.swp
 /fullstack_template/static/node_modules
 /fullstack_template/server/flaskenv
 /fullstack_template/static/bootstrap
 /fullstack_template/static/dist/
 /node_modules
 /fullstack_template/static/dist/bundle.js
+fullstack_template/static/dist/bundle.js
+/fullstack_template/static/dist/styles.css

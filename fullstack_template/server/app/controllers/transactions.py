@@ -118,7 +118,7 @@ def checkbox():
 
     data = request.get_json()
 
-    checkbox = entries.find_one({"_id": ObjectId(data['id'])})
+    bookmark = entries.find_one({"_id": ObjectId(data['id'])})
 
     if bookmark['bookmark'] != data['color']:
         entries.find_one_and_update(
