@@ -1,12 +1,10 @@
 import React from "react"
-
 import Header from "./headers/Header"
 import Subheader from "./headers/Subheader"
 import BodyAccount from "./accountTransactions/BodyAccount"
 
 
-class Body extends React.Component {
-  render () {
+const Body = () => {
     return (
       <div className='bodymain'>
         <div className="page-header-main">
@@ -21,7 +19,7 @@ class Body extends React.Component {
         </div>
       </div>
     )
-  }
 }
 
 export default Body
+
