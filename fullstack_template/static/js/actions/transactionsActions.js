@@ -15,12 +15,12 @@ export function fetchTransactions() {
   }
 }
 /* Update reconcile data */
-export function updateTransactions(e) {
+export function updateTransactions(el) {
   return function (dispatch) {
     dispatch({type: "UPDATE_TRANSACTIONS_FETCHING"})
 
     axios.post(window.location.href + 'reconcileflag', {
-      elementsId: e.target.parentElement.parentElement.id,
+      elementsId: el
       // elementsId: e.target.parentElement.parentElement.id,
     }
   ).then(response => {
@@ -121,22 +121,22 @@ export function updateTransactionsInputData(data, date) {
 }
 
 /* Update database for the checkboxes */
-export function updateTransactionsCHeckbox(id) {
+export function updateTransactionsCheckbox(id) {
   return function (dispatch) {
-    dispatch({type: "UPDATE_TRANSACTIONS_FETCHING"})
+    dispatch({type: "UPDATE_TRANSACTIONS_CHECKBOX_FETCHING"})
 
     axios.post(window.location.href + 'checkbox', {
       id: id
     }
     ).then(response => {
       dispatch({
-        type: "UPDATE_TRANSACTIONS_FULFILLED",
+        type: "UPDATE_TRANSACTIONS_CHECKBOX_FULFILLED",
         payload: response.data.checkbox,
         id: response.data.id})
     })
     .catch(err => {
       dispatch({
-        type: "UPDATE_TRANSACTIONS_REJECTED",
+        type: "UPDATE_TRANSACTIONS_CHECKBOC_REJECTED",
         payload: err})
     })
     // Fetch updated transactions

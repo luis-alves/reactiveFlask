@@ -65,61 +65,90 @@ export default class InputData extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} method="post" className="form-transaction">
-        <div className="table-header handhover"
-             key={this.props.row._id['$oid']}
-             id={this.props.row._id['$oid']}
+      <form onSubmit={this.handleSubmit} method='post' className='form-transaction'>
+        <div className='table-header handhover'
+          key={this.props.row._id['$oid']}
+          id={this.props.row._id['$oid']}
         >
-          <div className="checkboxOne body-row-item trigger">
-            <input className=" handhover checkbox" defaultChecked='true' type="checkbox" name="" value="1"/>
-            <label htmlFor="checkboxOneInput"></label>
+          <div className='checkboxOne body-row-item trigger'>
+            <input
+              className=' handhover checkbox'
+              defaultChecked='true'
+              type='checkbox'
+              name=''
+              value='1' />
+            <label htmlFor='checkboxOneInput' />
           </div>
-          <div className="boxing-info body-row-item trigger">
-            <i className={"icon-info handhover " + this.props.row.flag}></i>
+          <div className='boxing-info body-row-item trigger'>
+            <i className={'icon-info handhover ' + this.props.row.flag} />
           </div>
-          <div className="boxing-info body-row-item trigger">
-            <i className={"icon-bookmark handhover " + this.props.row.bookmark}
-               data-_id={this.props.row._id['$oid']}>
-            </i>
+          <div className='boxing-info body-row-item trigger'>
+            <i className={'icon-bookmark handhover ' + this.props.row.bookmark}
+              data-_id={this.props.row._id['$oid']} />
           </div>
-          <div className="table-header-input-data">
+          <div className='table-header-input-data'>
             <Datepicker
-              className="date-input row-item input-data"
+              className='date-input row-item input-data'
               selected={this.state.startDate}
               onChange={this.handleChange}
-              dateFormat="DD/MM/YYYY"
+              dateFormat='DD/MM/YYYY'
             />
-            <input type="text"  className="payee-input input-data" defaultValue={this.state.payee} onChange={this.handlePayee} />
-            <input type="text" name="category" className="category input-data" defaultValue={this.state.category} onChange={this.handleCategory} />
-            <input type="text" name="memo" className="memo input-data" defaultValue={this.state.memo} onChange={this.handleMemo} />
-            <input type="number" name="outflow" className="outflow input-data" defaultValue={this.state.outflow} onChange={this.handleOutflow} />
-            <input type="number" name="inflow" className="inflow input-data" defaultValue={this.state.inflow} onChange={this.handleInflow} />
+            <input
+              type='text'
+              className='payee-input input-data'
+              defaultValue={this.state.payee}
+              onChange={this.handlePayee} />
+            <input
+              type='text'
+              name='category'
+              className='category input-data'
+              defaultValue={this.state.category}
+              onChange={this.handleCategory} />
+            <input
+              type='text'
+              name='memo'
+              className='memo input-data'
+              defaultValue={this.state.memo}
+              onChange={this.handleMemo} />
+            <input
+              type='number'
+              name='outflow'
+              className='outflow input-data'
+              defaultValue={this.state.outflow}
+              onChange={this.handleOutflow} />
+            <input
+              type='number'
+              name='inflow'
+              className='inflow input-data'
+              defaultValue={this.state.inflow}
+              onChange={this.handleInflow} />
           </div>
-          <div className="boxing-reconcile body-row-item trigger">
+          <div className='boxing-reconcile body-row-item trigger'>
             <i
-              title="Reconcile account"
-              id="filho"
-              className={"icon-check handhover " + this.props.row.reconcile}
-              ></i>
+              title='Reconcile account'
+              id='filho'
+              className={'icon-check handhover ' + this.props.row.reconcile}
+            />
           </div>
         </div>
-        <div className="table-header hand-text">
-          <div className="checkboxOne body-row-item trigger">
+        <div className='table-header hand-text'>
+          <div className='checkboxOne body-row-item trigger' />
+          <div className='boxing-info body-row-item trigger' />
+          <div className='boxing-info body-row-item trigger' />
+          <div className='table-header-input-field'>
+            <h5 className='date row-item input-data' />
+            <h5 className='payee row-item input-data' />
+            <h5 className='category row-item input-data' />
+            <h5 className='memo row-item input-data' />
+            <button
+              className='form-button outflow row-item input-data'
+              type='submit' >Submit</button>
+            <button
+              className='form-button inflow row-item input-data'
+              type='cancel'
+              onClick={this.handleCancelation}>Cancel</button>
           </div>
-          <div className="boxing-info body-row-item trigger">
-          </div>
-          <div className="boxing-info body-row-item trigger">
-          </div>
-          <div className="table-header-input-field">
-            <h5 className="date row-item input-data"></h5>
-            <h5 className="payee row-item input-data" ></h5>
-            <h5 className="category row-item input-data" ></h5>
-            <h5 className="memo row-item input-data" ></h5>
-            <button className="form-button outflow row-item input-data" type="submit" >Submit</button>
-            <button className="form-button inflow row-item input-data" type="cancel" onClick={this.handleCancelation}>Cancel</button>
-          </div>
-          <div className="boxing-reconcile body-row-item trigger">
-          </div>
+          <div className='boxing-reconcile body-row-item trigger' />
         </div>
       </form>
     )

@@ -48,13 +48,29 @@ export default function reducer(state={
             category: action.payload.category,
             memo: action.payload.memo,
             date: action.payload.date,
-            category: action.payload.category,
             outflow: action.payload.outflow,
             inflow: action.payload.inflow
           } : row
         )
       }
 
+    // Update selected checkboxs
+    case "UPDATE_TRANSACTION_CHECKBOX_FETCHING":
+      return {...state, fetching: true}
+    case "UPDATE_TRANSACTION_CHECKBOX_REJECTED":
+      return {...state, fetching: false, error: action.payload}
+    case "UPDATE_TRANSACTION_CHECKBOX_FULFILLED":
+      return {
+        ...state,
+        fetching: false,
+        fetched: true,
+        transactions: state.transactions.map(row => row._id['$oid'] === action.id ?
+          {
+            ...row,
+            checkbox: action.payload.checkbox
+          } : row
+        )
+      }
 
 
     default:

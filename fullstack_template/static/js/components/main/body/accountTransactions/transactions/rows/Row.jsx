@@ -5,12 +5,18 @@ import InputData from "./dataOutputs/InputData"
 
 
 export default class Row extends React.Component {
-  onClick = () => {
+  constructor(props) {
+    super(props)
+    this.onClick = this.onClick.bind(this)
+    this.onclicking = this.onclicking.bind(this)
+  }
+
+  onClick() {
     const {handleSelect, rowId} = this.props
     handleSelect(rowId)
   }
 
-  onclicking = () => {
+  onclicking() {
     const {handleUnselect, rowId} = this.props
     handleUnselect(rowId)
   }
@@ -26,6 +32,7 @@ export default class Row extends React.Component {
       <ResultData
         row={row}
         rowId={rowId}
+        elID={this.props.elID}
         onclick={this.onClick}
         changeColor={this.props.changeColor}
         handlecheck={this.props.handleCheck}

@@ -17,7 +17,7 @@ export default class ResultData extends React.Component {
     }
   }
 
-  changeBookmarkColor = (event) => {
+  changeBookmarkColor(event) {
     this.setState({
       pointerY: event.target.offsetTop-28,
       row: event.currentTarget.dataset._id,
@@ -26,22 +26,24 @@ export default class ResultData extends React.Component {
     event.stopPropagation()
   }
 
-  handleCheck = (e) => {
-    const id = e.currentTarget.parentElement.parentElement.id
-    this.props.handlecheck(id)
-  }
+  // handleCheck(e) {
+  //   const id = e.currentTarget.parentElement.parentElement.id
+  //   console.log('helo')
+  //   this.props.handlecheck(id)
+  // }
 
   render() {
     return (
-      <div className="table-header handhover"
-           key={this.props.row._id['$oid']}
-           id={this.props.row._id['$oid']}
+      <div className='table-header handhover'
+        key={this.props.row._id['$oid']}
+        id={this.props.row._id['$oid']}
            >
         <Checkbox
+          elID={this.props.elID}
           checkboxStatus={this.props.row.checkbox}
-          onClick={this.handleCheck}
+          handlecheck={this.props.handlecheck}
         />
-        <InfoIcon iconColor={this.props.row.flag}/>
+        <InfoIcon iconColor={this.props.row.flag} />
         <BookmarkIcon
           handleBookmarkClick={this.changeBookmarkColor}
           rowData={this.props.row}
@@ -51,13 +53,13 @@ export default class ResultData extends React.Component {
           rowData={this.props.row}
         />
         <ReconcileIcon
-            changeCheckIconColor={this.props.changeColor}
-            row={this.props.row}
+          changeReconcileIconColor={this.props.changeColor}
+          row={this.props.row}
         />
         { this.state.visibility ? (
           <div
-            id="overlay"
-            ref="overlay"
+            id='overlay'
+            ref='overlay'
             onClick={this.changeBookmarkColor.bind(null)}
             >
             <div>

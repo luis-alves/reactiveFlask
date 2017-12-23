@@ -3,7 +3,8 @@ import { connect } from "react-redux"
 import ReactLoading from 'react-loading'
 
 // Actions
-import { fetchTransactions, updateTransactions } from "../../../../../actions/transactionsActions"
+import { fetchTransactions }
+  from "../../../../../actions/transactionsActions"
 
 import Row from "./rows/Row"
 
@@ -18,10 +19,9 @@ export default class Transactions extends React.Component {
         this.state = {rows: {}, pointerY: null, row: null}
     }
 
-    changeColor = (e) => {
-      e.stopPropagation()
-      this.props.dispatch(updateTransactions(e))
-    }
+    // changeColor = (elID) => {
+    //   this.props.dispatch(updateTransactions(elID))
+    // }
 
     handleSelect = (rowId) => {
       this.setState({
@@ -37,9 +37,8 @@ export default class Transactions extends React.Component {
       })
     }
 
-    handleCheck = (id) => {
-      console.log('dfsds ' +id);
-      this.props.dispatch(updateTransactionsCheckbox(id))
+    handleCheck() {
+      //this.props.dispatch(updateTransactionsCheckbox(id))
     }
 
     render() {
@@ -49,6 +48,7 @@ export default class Transactions extends React.Component {
           <Row
             key={index}
             row={row}
+            elID={row['_id']['$oid']}
             handleSelect={this.handleSelect}
             handleUnselect={this.handleUnselect}
             handleCheck={this.handleCheck}
@@ -64,7 +64,12 @@ export default class Transactions extends React.Component {
     }
       else {
         return (
-          <ReactLoading className='spining' type='spinningBubbles' color='#444' height='75px' width='75px' />
+          <ReactLoading
+            className='spining'
+            type='spinningBubbles'
+            color='#444'
+            height='75px'
+            width='75px' />
         )
       }
     }
