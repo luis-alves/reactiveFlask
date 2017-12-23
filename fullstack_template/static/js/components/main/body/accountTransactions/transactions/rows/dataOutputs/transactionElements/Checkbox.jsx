@@ -1,16 +1,15 @@
-import React from "react"
-import { connect } from "react-redux"
+import React from 'react'
+import { connect } from 'react-redux'
 
 import { updateTransactionsCheckbox }
-  from "../../../../../../../../actions/transactionsActions"
+  from '../../../../../../../../actions/transactionsActions'
 
 @connect(store => {
   return { transactions: store.transactions.transactions }
 })
 class Checkbox extends React.Component {
-  chek = () => {
+  check = () => {
     const { elID } = this.props
-    console.log(this.props)
     this.props.dispatch(updateTransactionsCheckbox(elID))
   }
   render() {
@@ -18,8 +17,8 @@ class Checkbox extends React.Component {
     return (
       <div className='checkboxOne body-row-item trigger'>
         <i
-          onClick={this.chek}
-          className={"handhover checkbox icon-" + checkboxStatus} />
+          onClick={this.check}
+          className={'handhover checkbox icon-' + checkboxStatus} />
       </div>
     )
  }

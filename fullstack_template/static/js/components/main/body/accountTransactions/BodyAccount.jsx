@@ -11,9 +11,9 @@ class BodyAccount extends React.Component {
 
   render () {
     return (
-      <div className="account-body">
+      <div className='account-body'>
         <TableHeader />
-        <div className="all-entries">
+        <div className='all-entries'>
           <Transactions />
         </div>
 
