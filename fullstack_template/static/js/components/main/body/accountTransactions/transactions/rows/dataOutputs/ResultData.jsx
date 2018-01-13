@@ -1,11 +1,11 @@
-import React from "react"
+import React from 'react'
 
-import ColorModal from "./modal/ColorModal"
-import Checkbox from "./transactionElements/Checkbox"
-import InfoIcon from "./transactionElements/InfoIcon"
-import BookmarkIcon from "./transactionElements/BookmarkIcon"
-import InputDataFields from "./transactionElements/InputDataFields"
-import ReconcileIcon from "./transactionElements/ReconcileIcon"
+import ColorModal from './modal/ColorModal'
+import Checkbox from './transactionElements/Checkbox'
+import InfoIcon from './transactionElements/InfoIcon'
+import BookmarkIcon from './transactionElements/BookmarkIcon'
+import InputDataFields from './transactionElements/InputDataFields'
+import ReconcileIcon from './transactionElements/ReconcileIcon'
 
 
 export default class ResultData extends React.Component {
@@ -15,6 +15,7 @@ export default class ResultData extends React.Component {
       row: null,
       visibility: false
     }
+    this.changeBookmarkColor = this.changeBookmarkColor.bind(this)
   }
 
   changeBookmarkColor(event) {

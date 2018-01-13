@@ -71,13 +71,14 @@ export default class InputData extends React.Component {
           id={this.props.row._id['$oid']}
         >
           <div className='checkboxOne body-row-item trigger'>
-            <input
+            <i className='icon-checked checkbox' style={{ color:'white' }} />
+            {/* <input
               className=' handhover checkbox'
               defaultChecked='true'
               type='checkbox'
               name=''
               value='1' />
-            <label htmlFor='checkboxOneInput' />
+            <label htmlFor='checkboxOneInput' /> */}
           </div>
           <div className='boxing-info body-row-item trigger'>
             <i className={'icon-info handhover ' + this.props.row.flag} />

@@ -7,15 +7,15 @@ import BodyAccount from "./accountTransactions/BodyAccount"
 const Body = () => {
     return (
       <div className='bodymain'>
-        <div className="page-header-main">
+        <div className='page-header-main'>
           <Header />
         </div>
-        <div className="page-subheader">
+        <div className='page-subheader'>
           <Subheader />
         </div>
-        <div className="page-bodyaccount">
+        <div className='page-bodyaccount'>
           <BodyAccount />
-          <img className="imageadd"/>
+          <img className='imageadd'/>
         </div>
       </div>
     )
