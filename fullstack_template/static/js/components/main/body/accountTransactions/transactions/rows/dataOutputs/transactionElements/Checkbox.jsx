@@ -9,8 +9,8 @@ import { updateTransactionsCheckbox }
 })
 class Checkbox extends React.Component {
   check = () => {
-    const { elID } = this.props
-    this.props.dispatch(updateTransactionsCheckbox(elID))
+    const { dbIdNumber } = this.props
+    this.props.dispatch(updateTransactionsCheckbox(dbIdNumber))
   }
   render() {
     const {checkboxStatus} = this.props

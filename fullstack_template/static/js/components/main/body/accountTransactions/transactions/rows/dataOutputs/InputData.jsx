@@ -5,7 +5,6 @@ import { connect } from "react-redux"
 require('react-datepicker/dist/react-datepicker.min.css');
 const moment = require('moment')
 
-// Actions
 import { updateTransactionsInputData } from "../../../../../../../actions/transactionsActions"
 
 
@@ -16,17 +15,17 @@ export default class InputData extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      startDate: moment(this.props.row.date, "DD/MM/YYYY"),
-      payee: this.props.row.payee,
-      category: this.props.row.category,
-      memo: this.props.row.memo,
-      outflow: this.props.row.outflow,
-      inflow: this.props.row.inflow,
-      id: this.props.row._id['$oid'],
+      startDate: moment(this.props.allDataFromRow.date, "DD/MM/YYYY"),
+      payee: this.props.allDataFromRow.payee,
+      category: this.props.allDataFromRow.category,
+      memo: this.props.allDataFromRow.memo,
+      outflow: this.props.allDataFromRow.outflow,
+      inflow: this.props.allDataFromRow.inflow,
+      id: this.props.allDataFromRow._id['$oid'],
     }
   }
 
-  handleChange = (date) => {
+  handleDateChange = (date) => {
     this.setState({startDate: date});
   }
 
@@ -55,43 +54,36 @@ export default class InputData extends React.Component {
     const date = moment(this.state.startDate, "YYYY-MM.DD").format('DD-MM-YYYY')
 
     this.props.dispatch(updateTransactionsInputData(this.state, date))
-    this.props.onclicking()
+    this.props.onClickUnhighlightRow()
   }
 
   handleCancelation = (e) => {
     e.preventDefault()
-    this.props.onclicking()
+    this.props.onClickUnhighlightRow()
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit} method='post' className='form-transaction'>
         <div className='table-header handhover'
-          key={this.props.row._id['$oid']}
-          id={this.props.row._id['$oid']}
+          key={this.props.allDataFromRow._id['$oid']}
+          id={this.props.allDataFromRow._id['$oid']}
         >
           <div className='checkboxOne body-row-item trigger'>
             <i className='icon-checked checkbox' style={{ color:'white' }} />
-            {/* <input
-              className=' handhover checkbox'
-              defaultChecked='true'
-              type='checkbox'
-              name=''
-              value='1' />
-            <label htmlFor='checkboxOneInput' /> */}
           </div>
           <div className='boxing-info body-row-item trigger'>
-            <i className={'icon-info handhover ' + this.props.row.flag} />
+            <i className={'icon-info handhover ' + this.props.allDataFromRow.flag} />
           </div>
           <div className='boxing-info body-row-item trigger'>
-            <i className={'icon-bookmark handhover ' + this.props.row.bookmark}
-              data-_id={this.props.row._id['$oid']} />
+            <i className={'icon-bookmark handhover ' + this.props.allDataFromRow.bookmark}
+              data-_id={this.props.allDataFromRow._id['$oid']} />
           </div>
           <div className='table-header-input-data'>
             <Datepicker
               className='date-input row-item input-data'
               selected={this.state.startDate}
-              onChange={this.handleChange}
+              onChange={this.handleDateChange}
               dateFormat='DD/MM/YYYY'
             />
             <input
@@ -128,7 +120,7 @@ export default class InputData extends React.Component {
             <i
               title='Reconcile account'
               id='filho'
-              className={'icon-check handhover ' + this.props.row.reconcile}
+              className={'icon-check handhover ' + this.props.allDataFromRow.reconcile}
             />
           </div>
         </div>

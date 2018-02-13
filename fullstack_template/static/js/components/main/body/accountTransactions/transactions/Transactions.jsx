@@ -2,7 +2,6 @@ import React from "react"
 import { connect } from "react-redux"
 import ReactLoading from 'react-loading'
 
-// Actions
 import { fetchTransactions }
   from "../../../../../actions/transactionsActions"
 
@@ -19,26 +18,18 @@ export default class Transactions extends React.Component {
         this.state = {rows: {}, pointerY: null, row: null}
     }
 
-    // changeColor = (elID) => {
-    //   this.props.dispatch(updateTransactions(elID))
-    // }
-
-    handleSelect = (rowId) => {
+    highlightRow = (indexRowNumber) => {
       this.setState({
         rows:{
-          [rowId]:true
+          [indexRowNumber]:true
         }
       })
     }
 
-    handleUnselect = (rowId) => {
+    unhighlightRow = (indexRowNumber) => {
       this.setState({
-        rows: {[rowId]:false}
+        rows: {[indexRowNumber]:false}
       })
-    }
-
-    handleCheck() {
-      //this.props.dispatch(updateTransactionsCheckbox(id))
     }
 
     render() {
@@ -48,11 +39,10 @@ export default class Transactions extends React.Component {
           <Row
             key={index}
             row={row}
-            elID={row['_id']['$oid']}
-            handleSelect={this.handleSelect}
-            handleUnselect={this.handleUnselect}
-            handleCheck={this.handleCheck}
-            rowId={index}
+            dbIdNumber={row['_id']['$oid']}
+            highlightRow={this.highlightRow}
+            unhighlightRow={this.unhighlightRow}
+            indexRowNumber={index}
             isSelected={rows[index]}
             changeColorBookmark={this.changeColorBookmark}
             changeColor={this.changeColor}

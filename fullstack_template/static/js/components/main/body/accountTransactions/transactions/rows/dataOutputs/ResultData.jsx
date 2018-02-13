@@ -27,35 +27,29 @@ export default class ResultData extends React.Component {
     event.stopPropagation()
   }
 
-  // handleCheck(e) {
-  //   const id = e.currentTarget.parentElement.parentElement.id
-  //   console.log('helo')
-  //   this.props.handlecheck(id)
-  // }
-
   render() {
     return (
       <div className='table-header handhover'
-        key={this.props.row._id['$oid']}
-        id={this.props.row._id['$oid']}
+        key={this.props.allDataFromRow._id['$oid']}
+        id={this.props.allDataFromRow._id['$oid']}
            >
         <Checkbox
-          elID={this.props.elID}
-          checkboxStatus={this.props.row.checkbox}
+          dbIdNumber={this.props.dbIdNumber}
+          checkboxStatus={this.props.allDataFromRow.checkbox}
           handlecheck={this.props.handlecheck}
         />
-        <InfoIcon iconColor={this.props.row.flag} />
+        <InfoIcon iconColor={this.props.allDataFromRow.flag} />
         <BookmarkIcon
-          handleBookmarkClick={this.changeBookmarkColor}
-          rowData={this.props.row}
+          changeBookmarkColor={this.changeBookmarkColor}
+          allDataFromRow={this.props.allDataFromRow}
         />
         <InputDataFields
-          handleEditInputFields={this.props.onclick}
-          rowData={this.props.row}
+          onClickEditRow={this.props.onClickEditRow}
+          allDataFromRow={this.props.allDataFromRow}
         />
         <ReconcileIcon
-          changeReconcileIconColor={this.props.changeColor}
-          row={this.props.row}
+          changeReconcileIconColor={this.props.onClickChangeBookmarkColor}
+          allDataFromRow={this.props.allDataFromRow}
         />
         { this.state.visibility ? (
           <div
@@ -84,6 +78,5 @@ export default class ResultData extends React.Component {
           `}
         </style>
       </div>
-    )
-    }
+    )}
 }

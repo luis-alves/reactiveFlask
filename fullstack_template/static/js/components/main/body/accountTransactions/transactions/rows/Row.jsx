@@ -7,35 +7,34 @@ import InputData from "./dataOutputs/InputData"
 export default class Row extends React.Component {
   constructor(props) {
     super(props)
-    this.onClick = this.onClick.bind(this)
-    this.onclicking = this.onclicking.bind(this)
+    this.onClickEditRow = this.onClickEditRow.bind(this)
+    this.onClickUnhighlightRow = this.onClickUnhighlightRow.bind(this)
   }
 
-  onClick() {
-    const {handleSelect, rowId} = this.props
-    handleSelect(rowId)
+  onClickEditRow() {
+    const {highlightRow, indexRowNumber} = this.props
+    highlightRow(indexRowNumber)
   }
 
-  onclicking() {
-    const {handleUnselect, rowId} = this.props
-    handleUnselect(rowId)
+  onClickUnhighlightRow() {
+    const {unhighlightRow, indexRowNumber} = this.props
+    unhighlightRow(indexRowNumber)
   }
 
   render() {
-    const {row, isSelected, rowId} = this.props
+    const {row, isSelected, dbIdNumber} = this.props
     const componentToHiglight = isSelected ? (
       <InputData
-        row={row}
-        onclicking={this.onclicking}
-        rowId={rowId} />
+        allDataFromRow={row}
+        onClickUnhighlightRow={this.onClickUnhighlightRow}
+        dbIdNumber={dbIdNumber} />
     ) : (
       <ResultData
-        row={row}
-        rowId={rowId}
-        elID={this.props.elID}
-        onclick={this.onClick}
-        changeColor={this.props.changeColor}
-        handlecheck={this.props.handleCheck}
+        allDataFromRow={row}
+        dbIdNumber={dbIdNumber}
+        indexRowNumber={this.props.indexRowNumber}
+        onClickEditRow={this.onClickEditRow}
+        onClickChangeBookmarkColor={this.props.onClickChangeBookmarkColor}
       />
     )
 

@@ -13,20 +13,16 @@ class ReconcileIcon extends React.Component {
   }
 
   changeReconcileIcon() {
-     const elID = this.props.row['_id']['$oid']
-     // this.props.changeReconcileIconColor(elID)
-     this.props.dispatch(updateTransactions(elID))
+     const dbIdNumber = this.props.allDataFromRow['_id']['$oid']
+     this.props.dispatch(updateTransactions(dbIdNumber))
   }
-
-  // changeCheckIcon(elID)
 
   render() {
       return (
         <div className='boxing-reconcile body-row-item trigger'>
           <i
-            className={"icon-check handhover " + this.props.row.reconcile}
-            onClick={this.changeReconcileIcon}
-        />
+            className={"icon-check handhover " + this.props.allDataFromRow.reconcile}
+            onClick={this.changeReconcileIcon} />
         </div>
       )
 
