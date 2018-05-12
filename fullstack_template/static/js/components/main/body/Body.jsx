@@ -15,7 +15,7 @@ const Body = () => {
         </div>
         <div className='page-bodyaccount'>
           <BodyAccount />
-          <img className='imageadd'/>
+          <img className='imageadd' />
         </div>
       </div>
     )

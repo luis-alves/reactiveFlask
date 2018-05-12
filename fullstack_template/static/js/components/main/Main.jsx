@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route } from 'react-router-dom';
 
-// Local components
 import TabMenu from "./body/TabMenu";
 
 

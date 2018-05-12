@@ -1,4 +1,4 @@
-const webpack = require('webpack');
+// const webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 

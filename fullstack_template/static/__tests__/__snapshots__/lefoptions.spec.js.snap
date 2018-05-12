@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check snapshot 1`] = `
+<div
+  className="left-options-main"
+>
+  <button>
+    <i
+      className="icons icon-add"
+    />
+    <i
+      className="subheader-text"
+    >
+      Add a transaction
+    </i>
+  </button>
+  <button>
+    <i
+      className="icons icon-pencil"
+    />
+    <i
+      className="subheader-text"
+    >
+      Edit
+    </i>
+  </button>
+  <button>
+    <i
+      className="icons icon-download"
+    />
+    <i
+      className="subheader-text"
+    >
+      Import
+    </i>
+  </button>
+  <button>
+    <i
+      className="icons icon-undo"
+    />
+    <i
+      className="subheader-text"
+    >
+      Undo
+    </i>
+    .
+  </button>
+  <button>
+    <i
+      className="icons icon-redo"
+    />
+    <i
+      className="subheader-text"
+    >
+      Redo
+    </i>
+  </button>
+</div>
+`;

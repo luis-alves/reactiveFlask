@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check snapshot 1`] = `
+<div
+  className="bodymain"
+>
+  <div
+    className="page-header-main"
+  >
+    <Header />
+  </div>
+  <div
+    className="page-subheader"
+  >
+    <Subheader />
+  </div>
+  <div
+    className="page-bodyaccount"
+  >
+    <BodyAccount />
+    <img
+      className="imageadd"
+    />
+  </div>
+</div>
+`;
