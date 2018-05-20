@@ -135,3 +135,17 @@ def checkbox():
 
     return dumps({'checkbox': checkbox['checkbox'],
                   'id': data['id']})
+
+
+@app.route('/untick', methods=['POST'])
+def clear_checkboxes():
+    client = MongoClient("mongodb://localhost")
+    db = client.reactingflask
+    entries = db.entries
+
+    data = request.get_json()
+
+    entries.update_many({}, {'$set': {"checkbox": "unchecked"}})
+
+    return dumps({'checkbox': 'unchecked',
+                  'id': data['id']})

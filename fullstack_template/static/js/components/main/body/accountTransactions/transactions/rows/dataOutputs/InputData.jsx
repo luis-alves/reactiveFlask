@@ -5,8 +5,11 @@ import { connect } from "react-redux"
 require('react-datepicker/dist/react-datepicker.min.css');
 const moment = require('moment')
 
-import { updateTransactionsInputData } from "../../../../../../../actions/transactionsActions"
+import { updateTransactionsInputData }
+  from "../../../../../../../actions/transactionsActions"
 
+import { updateCheckbox }
+  from "../../../../../../../actions/checkboxActions"
 
 @connect(store => {
     return { transactions: store.transactions.transactions }
@@ -60,6 +63,10 @@ export default class InputData extends React.Component {
   handleCancelation = (e) => {
     e.preventDefault()
     this.props.onClickUnhighlightRow()
+  }
+
+  componentWillMount() {
+    this.props.dispatch(updateCheckbox(this.props.allDataFromRow._id['$oid']))
   }
 
   render() {

@@ -27,7 +27,8 @@ export default class Row extends React.Component {
       <InputData
         allDataFromRow={row}
         onClickUnhighlightRow={this.onClickUnhighlightRow}
-        dbIdNumber={dbIdNumber} />
+        dbIdNumber={dbIdNumber}
+      />
     ) : (
       <ResultData
         allDataFromRow={row}

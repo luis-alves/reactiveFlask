@@ -8,10 +8,12 @@ import { updateTransactionsCheckbox }
   return { transactions: store.transactions.transactions }
 })
 class Checkbox extends React.Component {
+
   check = () => {
     const { dbIdNumber } = this.props
     this.props.dispatch(updateTransactionsCheckbox(dbIdNumber))
   }
+
   render() {
     const {checkboxStatus} = this.props
     return (

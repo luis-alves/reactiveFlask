@@ -151,3 +151,36 @@ export function updateTransactionsCheckbox(id) {
     })
   }
 }
+
+
+/* Update database for the checkboxes */
+export function updateCheckbox(id) {
+  return function (dispatch) {
+    dispatch({type: "UPDATE_ALL_CHECKBOX_FETCHING"})
+
+    axios.post(window.location.href + 'untick', {
+      id: id
+    })
+    .then(response => {
+      dispatch({
+        type: "UPDATE_ALL_CHECKBOX_FULFILLED",
+        payload: response.data.checkbox,
+        id: response.data.id})
+    })
+    .catch(err => {
+      dispatch({
+        type: "UPDATE_ALL_CHECKBOX_REJECTED",
+        payload: err})
+    })
+    // Fetch updated transactions
+    // dispatch({type: "FETCH_TRANSACTIONS_FETCHING"})
+
+    // axios.get(window.location.href + 'transactions')
+    // .then(response => {
+    //   dispatch({type: "FETCH_TRANSACTIONS_FULFILLED", payload: response.data})
+    // })
+    // .catch(err => {
+    //   dispatch({type: "FETCH_TRANSACTIONS_REJECTED", payload: err})
+    // })
+  }
+}

@@ -5,6 +5,7 @@ import ReactLoading from 'react-loading'
 import { fetchTransactions }
   from "../../../../../actions/transactionsActions"
 
+
 import Row from "./rows/Row"
 
 

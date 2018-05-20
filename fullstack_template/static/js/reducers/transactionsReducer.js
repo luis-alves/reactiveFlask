@@ -72,6 +72,23 @@ export default function reducer(state={
         )
       }
 
+    // Remove tick from unselected rows
+    case "UPDATE_ALL_CHECKBOX_FETCHING":
+      return {...state, fetching: true}
+    case "UPDATE_ALL_CHECKBOX_REJECTED":
+      return {...state, fetching: false, error: action.payload}
+    case "UPDATE_ALL_CHECKBOX_FULFILLED":
+      return {
+        ...state,
+        fetching: false,
+        fetched: true,
+        transactions: state.transactions.map(row => row._id['$oid'] !== action.id ?
+          {
+            ...row,
+            checkbox:action.payload
+          } : row
+        )
+      }
 
     default:
       return {
