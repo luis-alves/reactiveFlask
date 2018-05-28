@@ -32,7 +32,9 @@ button {
   background: transparent;
 }
 
-
+.checked {
+  background-color: #00596F;
+}
 
 
 

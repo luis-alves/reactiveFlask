@@ -5,9 +5,7 @@ import ReactLoading from 'react-loading'
 import { fetchTransactions }
   from "../../../../../actions/transactionsActions"
 
-
 import Row from "./rows/Row"
-
 
 @connect(store => {
     return { transactions: store.transactions.transactions }
@@ -48,7 +46,7 @@ export default class Transactions extends React.Component {
             changeColorBookmark={this.changeColorBookmark}
             changeColor={this.changeColor}
           />
-      )
+        )
         return (
           <div>{allRows}</div>
       )

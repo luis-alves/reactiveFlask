@@ -10,8 +10,9 @@ import { updateTransactionsCheckbox }
 class Checkbox extends React.Component {
 
   check = () => {
-    const { dbIdNumber } = this.props
+    const { dbIdNumber, indexRowNumber } = this.props
     this.props.dispatch(updateTransactionsCheckbox(dbIdNumber))
+    this.props.onClickEditRow(indexRowNumber)
   }
 
   render() {

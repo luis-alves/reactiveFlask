@@ -121,10 +121,12 @@ def checkbox():
     checkbox = entries.find_one({"_id": ObjectId(data['id'])})
 
     if checkbox['checkbox'] == 'unchecked':
-        entries.find_one_and_update(
-            {"_id": ObjectId(data['id'])},
-            {"$set": {"checkbox": 'checked'}},
-        )
+        checkbox['checkbox'] = 'checked'
+        # entries.find_one_and_update(
+        #     {"_id": ObjectId(data['id'])},
+        #     {"$set": {"checkbox": 'checked'}},
+        # )
+        print checkbox['checkbox']
     else:
         entries.find_one_and_update(
             {"_id": ObjectId(data['id'])},
