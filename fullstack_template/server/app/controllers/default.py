@@ -1,7 +1,7 @@
 from app import app
 from flask import render_template
 from pymongo import MongoClient
-import json
+# import json
 from bson.json_util import dumps
 
 import balance
@@ -10,6 +10,16 @@ import transactions
 
 @app.route("/")
 def index():
+    # client = MongoClient("mongodb://localhost")
+    # db = client.reactingflask
+    # entries = db.entries
+
+    # all_lines = list(entries.find())
+
+    # for entrie in all_lines:
+    #     # entrie['checkbox'] = 'unchecked'
+    #     print(entrie)
+
     return render_template('index.html')
 
 

@@ -6,7 +6,7 @@ from bson.objectid import ObjectId
 import datetime
 
 
-@app.route('/transactions')
+@app.route('/transactions', methods=['GET'])
 def transactions():
     client = MongoClient("mongodb://localhost")
     db = client.reactingflask
@@ -14,11 +14,12 @@ def transactions():
 
     all_lines = list(entries.find())
 
-    for date in all_lines:
-        # print date['date']
+    for entrie in all_lines:
+        # entrie['checkbox'] = 'unchecked'
         # print 'new'
-        new_date = date['date'].strftime('%d-%m-%Y')
-        date['date'] = new_date
+        # entrie['date'] = entrie['date'].strftime('%d-%m-%Y')
+        new_date = entrie['date'].strftime('%d-%m-%Y')
+        entrie['date'] = new_date
 
     return dumps(all_lines)
 
@@ -122,11 +123,11 @@ def checkbox():
 
     if checkbox['checkbox'] == 'unchecked':
         checkbox['checkbox'] = 'checked'
-        # entries.find_one_and_update(
-        #     {"_id": ObjectId(data['id'])},
-        #     {"$set": {"checkbox": 'checked'}},
-        # )
-        print checkbox['checkbox']
+        entries.find_one_and_update(
+            {"_id": ObjectId(data['id'])},
+            {"$set": {"checkbox": 'checked'}},
+        )
+        # print checkbox['checkbox']
     else:
         entries.find_one_and_update(
             {"_id": ObjectId(data['id'])},
