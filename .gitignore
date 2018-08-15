@@ -1,5 +1,6 @@
 /flask
 /fullstack_template/server/flaskenv
+/fullstack_template/server/app/*.pyc
 /fullstack_template/server/Include
 /fullstack_template/server/Lib
 /fullstack_template/server/Scripts
@@ -7,7 +8,6 @@
 *.pyc
 *.swp
 /fullstack_template/static/node_modules
-/fullstack_template/server/flaskenv
 /fullstack_template/static/bootstrap
 /fullstack_template/static/dist/
 /node_modules
