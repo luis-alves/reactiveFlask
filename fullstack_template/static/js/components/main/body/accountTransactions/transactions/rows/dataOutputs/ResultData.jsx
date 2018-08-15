@@ -26,9 +26,10 @@ export default class ResultData extends React.Component {
     event.stopPropagation()
   }
 
-  handleCheck = (e) => {
+  handlecheck = (e) => {
+    console.log(e)
     const id = e.currentTarget.parentElement.parentElement.id
-    this.props.handlecheck(id)
+    this.props.handleCheck(id)
   }
 
   render() {
@@ -39,7 +40,8 @@ export default class ResultData extends React.Component {
            >
         <Checkbox
           checkboxStatus={this.props.row.checkbox}
-          onClick={this.handleCheck}
+          handleCheck={this.handlecheck}
+          onClick={this.handlecheck}
         />
         <InfoIcon iconColor={this.props.row.flag}/>
         <BookmarkIcon

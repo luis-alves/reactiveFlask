@@ -28,7 +28,7 @@ export default class Row extends React.Component {
         rowId={rowId}
         onclick={this.onClick}
         changeColor={this.props.changeColor}
-        handlecheck={this.props.handleCheck}
+        handleCheck={this.props.handleCheck}
       />
     )
 
