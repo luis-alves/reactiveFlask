@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import ReactLoading from 'react-loading'
 
 // Actions
-import { fetchTransactions, updateTransactions, updateTransactionsCheckbox } from "../../../../../actions/transactionsActions"
+import { fetchTransactions, updateTransactions, updateTransactionsCheckbox, updateTransactionsTicks } from "../../../../../actions/transactionsActions"
 
 import Row from "./rows/Row"
 
@@ -31,6 +31,11 @@ export default class Transactions extends React.Component {
       })
     }
 
+    removeTicksFromAllTransactions = (rowId) => {
+      console.log(rowId)
+      this.props.dispatch(updateTransactionsTicks(rowId))
+    }
+
     handleUnselect = (rowId) => {
       this.setState({
         rows: {[rowId]:false}
@@ -50,6 +55,7 @@ export default class Transactions extends React.Component {
             key={index}
             row={row}
             handleSelect={this.handleSelect}
+            removeTicksFromAllTransactions={this.removeTicksFromAllTransactions}
             handleUnselect={this.handleUnselect}
             handleCheck={this.handleCheck}
             rowId={index}

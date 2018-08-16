@@ -135,3 +135,34 @@ def checkbox():
 
     return dumps({'checkbox': checkbox['checkbox'],
                   'id': data['id']})
+
+
+@app.route('/remove_ticks', methods=['POST'])
+def remove_tick():
+    client = MongoClient("mongodb://localhost")
+    db = client.reactingflask
+    entries = db.entries
+    values = entries.find({})
+    data = request.get_json()
+
+    checkbox = entries.find_one({"_id": ObjectId(data['id'])})
+    for value in values:
+        if value['_id']['$oid'] != data['id'] and \
+                value['checkbox'] == 'checked':
+            value['checkbox'] = 'unchecked'
+
+    # if checkbox['checkbox'] == 'unchecked':
+    #     entries.find_one_and_update(
+    #         {"_id": ObjectId(data['id'])},
+    #         {"$set": {"checkbox": 'checked'}},
+    #     )
+    # else:
+    #     entries.find_one_and_update(
+    #         {"_id": ObjectId(data['id'])},
+    #         {"$set": {"checkbox": 'unchecked'}},
+    #     )
+
+    checkbox = entries.find_one({"_id": ObjectId(data['id'])})
+
+    return dumps({'checkbox': checkbox['checkbox'],
+                  'id': data['id']})

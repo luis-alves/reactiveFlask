@@ -5,9 +5,10 @@ import InputData from "./dataOutputs/InputData"
 
 
 export default class Row extends React.Component {
-  onClick = () => {
-    const {handleSelect, rowId} = this.props
+  changeToInputField = () => {
+    const {row, handleSelect, rowId} = this.props
     handleSelect(rowId)
+    this.props.removeTicksFromAllTransactions(row['_id']['$oid'])
   }
 
   onclicking = () => {
@@ -26,7 +27,7 @@ export default class Row extends React.Component {
       <ResultData
         row={row}
         rowId={rowId}
-        onclick={this.onClick}
+        onclick={this.changeToInputField}
         changeColor={this.props.changeColor}
         handleCheck={this.props.handleCheck}
       />
