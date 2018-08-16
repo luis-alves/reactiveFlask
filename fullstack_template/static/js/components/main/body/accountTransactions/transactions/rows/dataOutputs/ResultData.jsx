@@ -26,12 +26,6 @@ export default class ResultData extends React.Component {
     event.stopPropagation()
   }
 
-  // handleCheck = (e) => {
-  //   console.log(e)
-  //   const id = e.currentTarget.parentElement.parentElement.id
-  //   this.props.handleCheck(id)
-  // }
-
   render() {
     return (
       <div className="table-header handhover"
