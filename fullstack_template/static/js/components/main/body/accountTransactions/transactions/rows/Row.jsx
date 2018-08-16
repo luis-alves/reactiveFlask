@@ -23,7 +23,7 @@ export default class Row extends React.Component {
 
   render() {
     const {row, isSelected, dbIdNumber} = this.props
-    const componentToHiglight = isSelected ? (
+    const componentToHiglight = (isSelected && row.checkbox === 'checked') ? (
       <InputData
         allDataFromRow={row}
         onClickUnhighlightRow={this.onClickUnhighlightRow}

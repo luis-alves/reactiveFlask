@@ -32,12 +32,12 @@ export default class ResultData extends React.Component {
       <div className={'table-header handhover ' + this.props.allDataFromRow.checkbox}
         key={this.props.allDataFromRow._id['$oid']}
         id={this.props.allDataFromRow._id['$oid']}
+        onClick={this.props.onClickEditRow}
        >
         <Checkbox
           dbIdNumber={this.props.dbIdNumber}
           checkboxStatus={this.props.allDataFromRow.checkbox}
           handlecheck={this.props.handlecheck}
-          onClickEditRow={this.props.onClickEditRow}
           indexRowNumber={this.props.indexRowNumber}
         />
         <InfoIcon iconColor={this.props.allDataFromRow.flag} />
