@@ -147,20 +147,14 @@ def remove_tick():
 
     checkbox = entries.find_one({"_id": ObjectId(data['id'])})
     for value in values:
-        if value['_id']['$oid'] != data['id'] and \
+        print(str(value['_id']) != data['id'])
+        if str(value['_id']) != data['id'] and \
                 value['checkbox'] == 'checked':
-            value['checkbox'] = 'unchecked'
-
-    # if checkbox['checkbox'] == 'unchecked':
-    #     entries.find_one_and_update(
-    #         {"_id": ObjectId(data['id'])},
-    #         {"$set": {"checkbox": 'checked'}},
-    #     )
-    # else:
-    #     entries.find_one_and_update(
-    #         {"_id": ObjectId(data['id'])},
-    #         {"$set": {"checkbox": 'unchecked'}},
-    #     )
+            print(value['id'])
+            entries.find_one_and_update(
+                {"_id": value['_id']},
+                {"$set": {"checkbox": 'unchecked'}}
+            )
 
     checkbox = entries.find_one({"_id": ObjectId(data['id'])})
 
