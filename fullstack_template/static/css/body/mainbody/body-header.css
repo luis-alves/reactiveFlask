@@ -149,6 +149,13 @@
 }
 
 
+.checkboxTwo {
+    min-width: 12.891px;
+    width: 1%;
+    color:white;
+}
+
+
 .date {
     /*min-width: 80.2px;
     width: 1em;*/

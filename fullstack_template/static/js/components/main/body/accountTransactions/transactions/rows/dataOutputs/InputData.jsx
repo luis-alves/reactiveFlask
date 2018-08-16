@@ -70,9 +70,8 @@ export default class InputData extends React.Component {
              key={this.props.row._id['$oid']}
              id={this.props.row._id['$oid']}
         >
-          <div className="checkboxOne body-row-item trigger">
-            <input className=" handhover checkbox" defaultChecked='true' type="checkbox" name="" value="1"/>
-            <label htmlFor="checkboxOneInput"></label>
+          <div className="checkboxTwo body-row-item trigger">
+            <i className=" handhover checkbox icon-checked" />
           </div>
           <div className="boxing-info body-row-item trigger">
             <i className={"icon-info handhover " + this.props.row.flag}></i>
