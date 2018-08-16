@@ -118,20 +118,20 @@ def checkbox():
 
     data = request.get_json()
 
-    bookmark = entries.find_one({"_id": ObjectId(data['id'])})
+    checkbox = entries.find_one({"_id": ObjectId(data['id'])})
 
-    if bookmark['bookmark'] != data['color']:
+    if checkbox['checkbox'] == 'unchecked':
         entries.find_one_and_update(
             {"_id": ObjectId(data['id'])},
-            {"$set": {"bookmark": data['color']}},
+            {"$set": {"checkbox": 'checked'}},
         )
     else:
         entries.find_one_and_update(
             {"_id": ObjectId(data['id'])},
-            {"$set": {"bookmark": 'grey'}},
+            {"$set": {"checkbox": 'unchecked'}},
         )
 
-    bookmark = entries.find_one({"_id": ObjectId(data['id'])})
+    checkbox = entries.find_one({"_id": ObjectId(data['id'])})
 
-    return dumps({'bookmark': bookmark['bookmark'],
+    return dumps({'checkbox': checkbox['checkbox'],
                   'id': data['id']})

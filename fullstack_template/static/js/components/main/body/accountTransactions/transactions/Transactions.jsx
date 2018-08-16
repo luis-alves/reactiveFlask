@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import ReactLoading from 'react-loading'
 
 // Actions
-import { fetchTransactions, updateTransactions } from "../../../../../actions/transactionsActions"
+import { fetchTransactions, updateTransactions, updateTransactionsCheckbox } from "../../../../../actions/transactionsActions"
 
 import Row from "./rows/Row"
 

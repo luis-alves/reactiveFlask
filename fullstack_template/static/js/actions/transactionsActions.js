@@ -121,22 +121,22 @@ export function updateTransactionsInputData(data, date) {
 }
 
 /* Update database for the checkboxes */
-export function updateTransactionsCHeckbox(id) {
+export function updateTransactionsCheckbox(id) {
   return function (dispatch) {
-    dispatch({type: "UPDATE_TRANSACTIONS_FETCHING"})
+    dispatch({type: "UPDATE_CHECKBOX_TRANSACTIONS_FETCHING"})
 
     axios.post(window.location.href + 'checkbox', {
       id: id
     }
     ).then(response => {
       dispatch({
-        type: "UPDATE_TRANSACTIONS_FULFILLED",
+        type: "UPDATE_CHECKBOX_TRANSACTIONS_FULFILLED",
         payload: response.data.checkbox,
         id: response.data.id})
     })
     .catch(err => {
       dispatch({
-        type: "UPDATE_TRANSACTIONS_REJECTED",
+        type: "UPDATE_CHECKBOX_TRANSACTIONS_REJECTED",
         payload: err})
     })
     // Fetch updated transactions
