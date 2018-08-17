@@ -6,7 +6,7 @@ export default class TableHeader extends React.Component {
     return (
       <div className="table-header fixedheader" >
         <div className="checkboxOne head-row-item">
-          <input type="checkbox" name="" id="checkboxOneInput" value="1"/>
+          <i  id="checkboxOneInput" className="checkbox icon-unchecked"/>
           <label htmlFor="checkboxOneInput"></label>
         </div>
         <div className="boxing-info head-row-item">
