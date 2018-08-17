@@ -32,7 +32,6 @@ export default class Transactions extends React.Component {
     }
 
     removeTicksFromAllTransactions = (rowId) => {
-      console.log(rowId)
       this.props.dispatch(updateTransactionsTicks(rowId))
     }
 
@@ -43,7 +42,6 @@ export default class Transactions extends React.Component {
     }
 
     handleCheck = (id) => {
-      console.log('dfsds ' +id);
       this.props.dispatch(updateTransactionsCheckbox(id))
     }
 

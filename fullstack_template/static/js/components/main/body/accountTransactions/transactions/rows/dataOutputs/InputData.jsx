@@ -55,12 +55,12 @@ export default class InputData extends React.Component {
     const date = moment(this.state.startDate, "YYYY-MM.DD").format('DD-MM-YYYY')
 
     this.props.dispatch(updateTransactionsInputData(this.state, date))
-    this.props.onclicking()
+    this.props.unselectRow()
   }
 
   handleCancelation = (e) => {
     e.preventDefault()
-    this.props.onclicking()
+    this.props.unselectRow()
   }
 
   render() {
