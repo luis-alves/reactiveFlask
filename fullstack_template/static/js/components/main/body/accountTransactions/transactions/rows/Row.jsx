@@ -14,7 +14,7 @@ export default class Row extends React.Component {
   unselectRow = () => {
     const {handleUnselect, rowId} = this.props
     handleUnselect(rowId)
-  ,}
+  }
 
   render() {
     const {row, isSelected, rowId} = this.props

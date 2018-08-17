@@ -183,3 +183,33 @@ export function updateTransactionsTicks(id) {
     })
   }
 }
+
+/* Update database addind/removing the ticks from all checkboxes */
+export function updateTransactionsAllTicks() {
+  return function (dispatch) {
+    dispatch({type: "UPDATE_CHECKBOX_ALLTICKS_TRANSACTIONS_FETCHING"})
+
+    axios.post(window.location.href + 'remove_all_ticks', {}
+    ).then(response => {
+      dispatch({
+        type: "UPDATE_CHECKBOX_ALLTICKS_TRANSACTIONS_FULFILLED",
+        payload: response.data.checkbox,
+        id: response.data.id})
+    })
+    .catch(err => {
+      dispatch({
+        type: "UPDATE_CHECKBOX_ALLTICKS_TRANSACTIONS_REJECTED",
+        payload: err})
+    })
+    // Fetch updated transactions
+    dispatch({type: "FETCH_TRANSACTIONS_FETCHING"})
+
+    axios.get(window.location.href + 'transactions')
+    .then(response => {
+      dispatch({type: "FETCH_TRANSACTIONS_FULFILLED", payload: response.data})
+    })
+    .catch(err => {
+      dispatch({type: "FETCH_TRANSACTIONS_REJECTED", payload: err})
+    })
+  }
+}
