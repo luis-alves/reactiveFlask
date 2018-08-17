@@ -11,7 +11,7 @@ export default class Row extends React.Component {
     this.props.removeTicksFromAllTransactions(row['_id']['$oid'])
   }
 
-  onclicking = () => {
+  unselectRow = () => {
     const {handleUnselect, rowId} = this.props
     handleUnselect(rowId)
   }
@@ -21,7 +21,7 @@ export default class Row extends React.Component {
     const componentToHiglight = isSelected ? (
       <InputData
         row={row}
-        onclicking={this.onclicking}
+        unselectRow={this.unselectRow}
         rowId={rowId} />
     ) : (
       <ResultData

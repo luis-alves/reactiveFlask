@@ -37,12 +37,13 @@ export default class Transactions extends React.Component {
 
     handleUnselect = (rowId) => {
       this.setState({
-        rows: {[rowId]:false}
+        rows: {}
       })
     }
 
     handleCheck = (id) => {
       this.props.dispatch(updateTransactionsCheckbox(id))
+      this.setState({rows:{}})
     }
 
     render() {

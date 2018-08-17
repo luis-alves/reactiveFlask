@@ -34,7 +34,6 @@ export default class ResultData extends React.Component {
            >
         <Checkbox
           checkboxStatus={this.props.row.checkbox}
-          handleCheck={this.handlecheck}
           handleCheck={this.props.handleCheck}
         />
         <InfoIcon iconColor={this.props.row.flag}/>
