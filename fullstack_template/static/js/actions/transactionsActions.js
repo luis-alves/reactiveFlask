@@ -189,7 +189,7 @@ export function updateTransactionsAllTicks() {
   return function (dispatch) {
     dispatch({type: "UPDATE_CHECKBOX_ALLTICKS_TRANSACTIONS_FETCHING"})
 
-    axios.post(window.location.href + 'remove_all_ticks', {}
+    axios.post(window.location.href + 'toggle_all_ticks', {}
     ).then(response => {
       dispatch({
         type: "UPDATE_CHECKBOX_ALLTICKS_TRANSACTIONS_FULFILLED",

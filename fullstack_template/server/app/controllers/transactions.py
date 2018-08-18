@@ -160,13 +160,12 @@ def remove_tick():
                   'id': data['id']})
 
 
-@app.route('/remove_all_ticks', methods=['POST'])
-def remove_all_ticks():
+@app.route('/toggle_all_ticks', methods=['POST'])
+def toggle_all_ticks():
     client = MongoClient("mongodb://localhost")
     db = client.reactingflask
     entries = db.entries
     values = entries.find({})
-    # data = request.get_json()
 
     for value in values:
         if value['checkbox'] == 'checked':
@@ -175,6 +174,7 @@ def remove_all_ticks():
                 {"$set": {"checkbox": 'unchecked'}}
             )
         else:
+            print(value['_id'])
             entries.find_one_and_update(
                 {"_id": value['_id']},
                 {"$set": {"checkbox": 'checked'}}
